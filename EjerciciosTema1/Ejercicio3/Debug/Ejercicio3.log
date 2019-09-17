@@ -1,0 +1,4 @@
+﻿  Source.cpp
+  E:\TPV\Ejercicios\Tema1\EjerciciosTema1\Ejercicio3\Source.cpp(64) : error C4716: 'mul': must return a value
+  E:\TPV\Ejercicios\Tema1\EjerciciosTema1\Ejercicio3\Source.cpp(68) : error C4716: 'trans': must return a value
+C:\software\programacion\MSVStudio2019\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(429,5): error MSB6006: "CL.exe" exited with code 2.
