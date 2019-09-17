@@ -20,7 +20,7 @@ int main() {
 	cout << "Escribe otra palabra" << endl;
 	string segunda;
 	cin >> segunda;
-	
+
 	cout << comprobacion(primera, segunda);
 	system("pause");
 }
@@ -34,10 +34,10 @@ bool comprobacion(string primera, string segunda) {
 	int j = 0;
 	int pri = primera.size;
 	int sec = segunda.size;
-	
+
 
 	while (i < pri && encontrada) {
-		
+
 		encontrada = false;
 		j = 0;
 		while (j < sec && !encontrada) {
