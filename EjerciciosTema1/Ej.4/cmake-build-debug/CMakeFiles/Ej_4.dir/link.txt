@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Ej_4.dir/Source.cpp.o  -o Ej_4 

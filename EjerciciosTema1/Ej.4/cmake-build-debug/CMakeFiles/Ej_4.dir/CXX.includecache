@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Source.cpp
+iostream
+-
+string
+-
+vector
+-
+array
+-
+

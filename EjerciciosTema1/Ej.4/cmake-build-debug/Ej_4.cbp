@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Ej_4"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ej_4">
+				<Option output="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Ej_4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ej_4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ej_4/fast">
+				<Option output="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Ej_4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ej_4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.log">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/CL.command.1.tlog">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/Ej.4.lastbuildstate">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/link.command.1.tlog">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/link.read.1.tlog">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/link.write.1.tlog">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/Ej.4.tlog/unsuccessfulbuild">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/vc142.idb">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Debug/vc142.pdb">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/Source.cpp">
+			<Option target="Ej_4"/>
+		</Unit>
+		<Unit filename="/home/daniel/OneDrive/Clase/PrograC/EjerciciosTema1/Ej.4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
