@@ -58,6 +58,7 @@ bool Mierda(string primera, string segunda){
 
       vector <letra> pri;
 
+      //Idea de copia y pega por David. Horroroso. No lo vuelvas a hacer.
 
       for (int i = 0; i < primera.size(); i++){
 
@@ -99,6 +100,7 @@ bool Mierda(string primera, string segunda){
             let.caracter = segunda[i];
             let.veces = 1;
             seg.push_back(let);
+
         }
         else{
             seg[p].veces++;
