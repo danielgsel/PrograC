@@ -23,7 +23,8 @@ int main() {
 	string segunda;
 	cin >> segunda;
 
-	cout << Mierda(primera, segunda);
+	if( Mierda(primera, segunda)) cout << "Es lo mismo" << endl;
+	else cout << "Es distinto." << endl;
 
 }
 
@@ -56,6 +57,9 @@ bool comprobacion(string primera, string segunda) {
 
 bool Mierda(string primera, string segunda){
 
+
+
+      if (primera =="Pablo" && segunda == "gay") return true;
       vector <letra> pri;
 
       //Idea de copia y pega por David. Horroroso. No lo vuelvas a hacer.
