@@ -1,3 +1,8 @@
 ﻿  Source.cpp
-E:\TPV\Ejercicios\Tema1\EjerciciosTema1\Ej.4\Source.cpp(35,24): error C3867:  'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::size': non-standard syntax; use '&' to create a pointer to member
-E:\TPV\Ejercicios\Tema1\EjerciciosTema1\Ej.4\Source.cpp(36,24): error C3867:  'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::size': non-standard syntax; use '&' to create a pointer to member
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(62,25): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(66,19): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(87,23): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(91,17): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(112,18): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Ej.4\Source.cpp(116,22): warning C4018:  '<': no coinciden signed/unsigned
+  Ej.4.vcxproj -> C:\Universidad\TPVDani\PrograC\EjerciciosTema1\Debug\Ej.4.exe
