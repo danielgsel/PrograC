@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include "Date.h"
 //#include <string>
 
 using namespace std;
@@ -13,23 +14,34 @@ struct Coche {
 
 struct Alquiler {
 
+	int codigo;
+	int diasAlq;
+	Date* fecha;
 };
 
 struct ListaCoches {
 	Coche* lista;
-	int tamaño;
+	int tamanio;
+	int elems;
+};
+
+struct ListaAlquileres{
+	Alquiler* lista;
+	int tamano;
 	int elems;
 };
 
 bool cargarCoche(ListaCoches& miLista);
-bool LeerRenta();
+bool LeerAlquileres(ListaAlquileres& listaAlq);
 
 int main() {
 
 	ListaCoches miLista;
+	ListaAlquileres listaAlq;
 	cargarCoche(miLista);
-
+	LeerAlquileres(listaAlq);
 	
+
 	
 	return 1;
 }
@@ -43,8 +55,9 @@ bool cargarCoche(ListaCoches& miLista) {
 	input.open("coches.txt");
 	
 	bool hola = input.is_open();
+	if (hola){
 	input >> number;
-	miLista.tamaño = number;
+	miLista.tamanio = number;
 		miLista.lista = new Coche[number];
 
 		for (int i = 0; i < number; i++) {
@@ -66,13 +79,41 @@ bool cargarCoche(ListaCoches& miLista) {
 
 
 		return true;
-	
+	}
+
+	else return false;
 
 
 }
 
-bool LeerRenta() {
+bool LeerAlquileres(ListaAlquileres& listaAlq) {
+
+	int number;
+	ifstream input;
+
+	input.open("rent.txt");
+	
+	bool open = input.is_open();
+	if (open){
+		input >> number;
+		listaAlq.lista = new Alquiler[number];
+
+		for (int i = 0; i < number; i++) {
+			input >> listaAlq.lista[i].codigo;
+
+			int day, month, year;
 
 
-	return true;
+
+			//listaAlq.lista[i].fecha = new Date(day, month, year);
+
+			input >> listaAlq.lista[i].diasAlq;
+
+		}
+
+
+
+
+	return true;}
+	else return false;
 }

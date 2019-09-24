@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 using unint = unsigned int;
-
+#include <fstream>
 
 
 enum Mes{
@@ -148,9 +148,18 @@ int main() {
     int* punt1; int* punt2;
     if (punt1 == punt2); //si apunta al mismo sitio
     if (*punt1 == *punt2); //si a lo que apunta cada uno tiene el mismo valor, aunque apunten a sitios distintos
+
+
+
+    ifstream input;
+    input.open("a");
+    char car;
+    while (!input.fail())
+        cout << car<<endl;
+
+
+
     return 0;
-
-
 
 
 }
