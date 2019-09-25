@@ -17,6 +17,7 @@ struct Alquiler {
 	int codigo;
 	int diasAlq;
 	Date* fecha;
+	Coche* coche;
 };
 
 struct ListaCoches {
@@ -32,16 +33,20 @@ struct ListaAlquileres{
 };
 
 bool cargarCoche(ListaCoches& miLista);
-bool LeerAlquileres(ListaAlquileres& listaAlq);
+bool LeerAlquileres(ListaAlquileres& listaAlq,ListaCoches& coches);
+Coche* buscarCoche(ListaCoches& lista, int cod);
+void mostrarAlquiler(ListaAlquileres& lista,ListaCoches& coches);
 
 int main() {
 
-	ListaCoches miLista;
+	ListaCoches listaCoches;
 	ListaAlquileres listaAlq;
-	cargarCoche(miLista);
-	LeerAlquileres(listaAlq);
-	
+	cargarCoche(listaCoches);
+	LeerAlquileres(listaAlq,listaCoches);
 
+	cout << endl<<endl;
+	
+	mostrarAlquiler(listaAlq,listaCoches);
 	
 	return 1;
 }
@@ -58,6 +63,7 @@ bool cargarCoche(ListaCoches& miLista) {
 	if (hola){
 	input >> number;
 	miLista.tamanio = number;
+	miLista.elems = number;
 		miLista.lista = new Coche[number];
 
 		for (int i = 0; i < number; i++) {
@@ -67,7 +73,7 @@ bool cargarCoche(ListaCoches& miLista) {
 			input >> miLista.lista[i].nombre;
 			string segnom;
 			input >> segnom;
-			miLista.lista[i].nombre += segnom;
+			miLista.lista[i].nombre += " "+segnom;
 		}
 
 		for (int i = 0; i < number; i++) {
@@ -86,10 +92,11 @@ bool cargarCoche(ListaCoches& miLista) {
 
 }
 
-bool LeerAlquileres(ListaAlquileres& listaAlq) {
+bool LeerAlquileres(ListaAlquileres& listaAlq, ListaCoches& coches) {
 
 	int number;
 	ifstream input;
+	string basura;// este string esta para sudar de los / del archivo al leer la fecha
 
 	input.open("rent.txt");
 	
@@ -97,15 +104,19 @@ bool LeerAlquileres(ListaAlquileres& listaAlq) {
 	if (open){
 		input >> number;
 		listaAlq.lista = new Alquiler[number];
-
+		listaAlq.elems = number;
 		for (int i = 0; i < number; i++) {
 			input >> listaAlq.lista[i].codigo;
+			listaAlq.lista[i].coche = buscarCoche(coches,listaAlq.lista[i].codigo);
 
 			int day, month, year;
+			input >> day;
+			input.get();
+			input >> month;
+			input.get();
+			input >> year;
 
-
-
-			//listaAlq.lista[i].fecha = new Date(day, month, year);
+			listaAlq.lista[i].fecha = new Date(day, month, year);
 
 			input >> listaAlq.lista[i].diasAlq;
 
@@ -117,3 +128,35 @@ bool LeerAlquileres(ListaAlquileres& listaAlq) {
 	return true;}
 	else return false;
 }
+
+
+Coche* buscarCoche(ListaCoches& lista ,int cod) {
+
+	//Coche* buscado = nullptr;
+	int i = 0;
+	while (i < lista.elems && cod != lista.lista[i].codigo) {
+		i++;
+		//buscado = &lista.lista[i];
+	}
+	if (i<=lista.elems && lista.lista[i].codigo == cod)
+		return &lista.lista[i];
+	else
+		return nullptr;
+
+}
+
+void mostrarAlquiler(ListaAlquileres& lista, ListaCoches& coches) {
+		Coche* actual = nullptr;
+	for (int i = 0; i < lista.elems; i++) {
+		actual = buscarCoche(coches,lista.lista[i].codigo);
+		
+		if (actual != nullptr) {
+			lista.lista[i].fecha->print();
+			cout << " " << actual->nombre << " " << lista.lista[i].diasAlq << "dias por " << actual->precioDia << " euros" << endl;
+		}
+		
+		
+	}
+}
+
+
