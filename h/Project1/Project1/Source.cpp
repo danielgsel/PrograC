@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include "Date.h"
+#include <algorithm>
 //#include <string>
 
 using namespace std;
@@ -32,10 +33,13 @@ struct ListaAlquileres{
 	int elems;
 };
 
+
+bool comp(Alquiler lis1, Alquiler lis2);
 bool cargarCoche(ListaCoches& miLista);
 bool LeerAlquileres(ListaAlquileres& listaAlq,ListaCoches& coches);
 Coche* buscarCoche(ListaCoches& lista, int cod);
 void mostrarAlquiler(ListaAlquileres& lista,ListaCoches& coches);
+void ordenarAlquiler(ListaAlquileres& miLista);
 
 int main() {
 
@@ -43,6 +47,7 @@ int main() {
 	ListaAlquileres listaAlq;
 	cargarCoche(listaCoches);
 	LeerAlquileres(listaAlq,listaCoches);
+	ordenarAlquiler(listaAlq);
 
 	cout << endl<<endl;
 	
@@ -127,6 +132,18 @@ bool LeerAlquileres(ListaAlquileres& listaAlq, ListaCoches& coches) {
 
 	return true;}
 	else return false;
+}
+
+void ordenarAlquiler(ListaAlquileres& miLista) {
+
+	sort(&miLista.lista[0],&miLista.lista[miLista.elems],comp);
+
+}
+
+bool comp(Alquiler lis1, Alquiler lis2) {
+
+	return(Date::operator<( &lis1.fecha,&lis2.fecha));
+
 }
 
 
