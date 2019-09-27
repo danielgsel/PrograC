@@ -24,13 +24,13 @@ struct Alquiler {
 struct ListaCoches {
 	Coche* lista;
 	int tamanio;
-	int elems;
+	int cont;
 };
 
 struct ListaAlquileres{
 	Alquiler* lista;
 	int tamano;
-	int elems;
+	int cont;
 };
 
 
@@ -38,7 +38,7 @@ bool comp(Alquiler lis1, Alquiler lis2);
 bool cargarCoche(ListaCoches& miLista);
 bool LeerAlquileres(ListaAlquileres& listaAlq,ListaCoches& coches);
 Coche* buscarCoche(ListaCoches& lista, int cod);
-void mostrarAlquiler(ListaAlquileres& lista,ListaCoches& coches);
+void mostrarAlquiler(ListaAlquileres& lista);
 void ordenarAlquiler(ListaAlquileres& miLista);
 
 int main() {
@@ -47,12 +47,18 @@ int main() {
 	ListaAlquileres listaAlq;
 	cargarCoche(listaCoches);
 	LeerAlquileres(listaAlq,listaCoches);
+	cout << endl << endl;
+	mostrarAlquiler(listaAlq);
 	ordenarAlquiler(listaAlq);
 
 	cout << endl<<endl;
 	
-	mostrarAlquiler(listaAlq,listaCoches);
+	mostrarAlquiler(listaAlq);
 	
+	delete[] listaCoches.lista;
+	delete[] listaAlq.lista;
+	listaCoches.lista = nullptr;
+	listaAlq.lista = nullptr;
 	return 1;
 }
 
@@ -67,9 +73,9 @@ bool cargarCoche(ListaCoches& miLista) {
 	bool hola = input.is_open();
 	if (hola){
 	input >> number;
-	miLista.tamanio = number;
-	miLista.elems = number;
-		miLista.lista = new Coche[number];
+	miLista.tamanio = number+10;
+	miLista.cont = number;
+		miLista.lista = new Coche[miLista.cont];
 
 		for (int i = 0; i < number; i++) {
 			//linea = input.getline;
@@ -108,9 +114,11 @@ bool LeerAlquileres(ListaAlquileres& listaAlq, ListaCoches& coches) {
 	bool open = input.is_open();
 	if (open){
 		input >> number;
-		listaAlq.lista = new Alquiler[number];
-		listaAlq.elems = number;
-		for (int i = 0; i < number; i++) {
+		listaAlq.cont = number;
+		listaAlq.tamano = number + 10;
+		listaAlq.lista = new Alquiler[listaAlq.tamano];
+		for (int i = 0; i < listaAlq.cont; i++) {
+			listaAlq.lista[i].codigo = 0;
 			input >> listaAlq.lista[i].codigo;
 			listaAlq.lista[i].coche = buscarCoche(coches,listaAlq.lista[i].codigo);
 
@@ -136,13 +144,13 @@ bool LeerAlquileres(ListaAlquileres& listaAlq, ListaCoches& coches) {
 
 void ordenarAlquiler(ListaAlquileres& miLista) {
 
-	sort(&miLista.lista[0],&miLista.lista[miLista.elems],comp);
+	sort(&(miLista.lista[0]),&(miLista.lista[miLista.cont]),comp);
 
 }
 
 bool comp(Alquiler lis1, Alquiler lis2) {
 
-	return(Date::operator<( &lis1.fecha,&lis2.fecha));
+	return(lis1.fecha<lis2.fecha);
 
 }
 
@@ -151,25 +159,28 @@ Coche* buscarCoche(ListaCoches& lista ,int cod) {
 
 	//Coche* buscado = nullptr;
 	int i = 0;
-	while (i < lista.elems && cod != lista.lista[i].codigo) {
+	while (i < lista.cont && cod != lista.lista[i].codigo) {
 		i++;
 		//buscado = &lista.lista[i];
 	}
-	if (i<=lista.elems && lista.lista[i].codigo == cod)
+	if (i<lista.cont && lista.lista[i].codigo == cod)
 		return &lista.lista[i];
 	else
 		return nullptr;
 
 }
 
-void mostrarAlquiler(ListaAlquileres& lista, ListaCoches& coches) {
-		Coche* actual = nullptr;
-	for (int i = 0; i < lista.elems; i++) {
-		actual = buscarCoche(coches,lista.lista[i].codigo);
+void mostrarAlquiler(ListaAlquileres& lista) {
+		;
+	for (int i = 0; i < lista.cont; i++) {
 		
-		if (actual != nullptr) {
 			lista.lista[i].fecha->print();
-			cout << " " << actual->nombre << " " << lista.lista[i].diasAlq << "dias por " << actual->precioDia << " euros" << endl;
+		
+		if (lista.lista[i].coche != nullptr) {
+			cout /*<<lista.lista[i].coche->codigo*/<< " " << lista.lista[i].coche->nombre << " " << lista.lista[i].diasAlq << " dias por " << lista.lista[i].coche->precioDia*lista.lista[i].diasAlq << " euros" << endl;
+		}
+		else {
+			cout << "  No hay ningun modelo asi"<<endl;
 		}
 		
 		
