@@ -1,0 +1,7 @@
+﻿  Circle.cpp
+C:\Universidad\TPVDani\PrograC\Tema2\Ejercicios POO\Ejercicios POO\Ejercicios POO\Circle.h(11,15): warning C4244:  'inicializando': conversión de 'double' a 'const int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\Tema2\Ejercicios POO\Ejercicios POO\Ejercicios POO\Circle.cpp(8,37): error C2512:  'Point2D': no hay disponible un constructor predeterminado adecuado
+  Source.cpp
+C:\Universidad\TPVDani\PrograC\Tema2\Ejercicios POO\Ejercicios POO\Ejercicios POO\Point2D.h(2,7): message :  vea la declaración de 'Point2D'
+  Generando código...
+C:\Universidad\TPVDani\PrograC\Tema2\Ejercicios POO\Ejercicios POO\Ejercicios POO\Circle.h(11,15): warning C4244:  'inicializando': conversión de 'double' a 'const int'; posible pérdida de datos
