@@ -40,8 +40,9 @@ void firstTest() {
 		
 			ultimoTiempo = tiempoActual;
 			tiempoActual = SDL_GetTicks() - tiempoEmpezar;
-			if (SDL_GetTicks()-ultimoTiempo<100) {
-				SDL_Delay(100- SDL_GetTicks() - ultimoTiempo);
+			if (SDL_GetTicks()-(ultimoTiempo+tiempoEmpezar)<100) {
+				
+				SDL_Delay(100-(SDL_GetTicks() - (ultimoTiempo + tiempoEmpezar)));
 
 			}
 			C(renderer,tiempoActual-ultimoTiempo,&posicionPerro);
