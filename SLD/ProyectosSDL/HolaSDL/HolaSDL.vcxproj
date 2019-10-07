@@ -67,9 +67,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DOG.cpp" />
     <ClCompile Include="Ej1.cpp" />
     <ClCompile Include="Ej2.cpp" />
+    <ClCompile Include="Ej3.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Textura.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DOG.h" />
+    <ClInclude Include="Textura.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
