@@ -1,4 +1,3 @@
-
 #include "SDL.h"
 #include "SDL_image.h"
 #include "checkML.h"
@@ -7,11 +6,11 @@
 using namespace std;
 
 using uint = unsigned int;
-int A(SDL_Renderer* render, SDL_Texture* texture);
-int B(SDL_Renderer* render);
-int C(SDL_Renderer* render, float x, SDL_Texture* texture);
-//int D(SDL_Renderer* render);
 
+int A(SDL_Renderer* render);
+int B(SDL_Renderer* render);
+int C(SDL_Renderer* render, int x,int* posPerro);
+int F(SDL_Renderer* render,int x, int*posHeli);
 void firstTest() {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); // Check Memory Leaks
 	SDL_Window* window = nullptr;
@@ -19,48 +18,38 @@ void firstTest() {
 	const uint winWidth = 800;
 	const uint winHeight = 600;
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("My first test with SDL", SDL_WINDOWPOS_CENTERED,
+	window = SDL_CreateWindow("First test with SDL", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	int tiempoActual, tiempoEmpezar,ultimoTiempo;
+	int posicionPerro=0;
+	int posicionHeli = 800;
 	if (window == nullptr || renderer == nullptr)
 		cout << "Error cargando SDL" << endl;
 	else {
-		uint32_t startTime, frameTime, oldFrameTime;
-		startTime = SDL_GetTicks();
-		float xPerro = 0;
-
+		tiempoEmpezar = SDL_GetTicks();
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderClear(renderer);
 
-		frameTime = SDL_GetTicks() - startTime;
-
-		SDL_Texture* fondo; // Variable para la textura
-		string filename = "..\\images\\background1.png"; // Nombre del fichero con la imagen .bmp
-		SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
-		fondo = SDL_CreateTextureFromSurface(renderer, surface);
-		SDL_FreeSurface(surface);
-
-		SDL_Texture* dog; // Variable para la textura
-		filename = "..\\images\\dog.png"; // Nombre del fichero con la imagen .bmp
-		surface = IMG_Load(filename.c_str()); // Solo para bmps
-		dog = SDL_CreateTextureFromSurface(renderer, surface);
-		SDL_FreeSurface(surface);
-
-		while (frameTime < 5000) {
+		A(renderer);
+		B(renderer);
+		tiempoActual = SDL_GetTicks() - tiempoEmpezar;
+		while (tiempoActual<5000) {
 			SDL_RenderClear(renderer);
-			A(renderer,fondo);
-			C(renderer, xPerro, dog);
+			A(renderer);
+		
+			ultimoTiempo = tiempoActual;
+			tiempoActual = SDL_GetTicks() - tiempoEmpezar;
+			if (SDL_GetTicks()-ultimoTiempo<100) {
+				SDL_Delay(100- SDL_GetTicks() - ultimoTiempo);
+
+			}
+			C(renderer,tiempoActual-ultimoTiempo,&posicionPerro);
+			F(renderer, tiempoActual - ultimoTiempo, &posicionHeli);
 			SDL_RenderPresent(renderer);
-
-			oldFrameTime = frameTime;
-
-			frameTime = SDL_GetTicks() - startTime;
-			xPerro = (10 * ((float)frameTime - (float)oldFrameTime) / 50);
-			
-			
-
-			
-
 		}
+
+		//SDL_RenderPresent(renderer);
 		//SDL_Delay(5000);
 	}
 	SDL_DestroyRenderer(renderer);
@@ -68,57 +57,94 @@ void firstTest() {
 	SDL_Quit();
 }
 
-int A(SDL_Renderer* render, SDL_Texture* texture) {
+int A(SDL_Renderer* render) {
 
-	
-	SDL_RenderCopy(render, texture, NULL, NULL);
-
-
-
-
-
-	
-	return 1;
+	SDL_Texture* fondo; // Variable para la textura
+	string filename = "..\\images\\background1.png"; // Nombre del fichero con la imagen .bmp
+	SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
+	fondo = SDL_CreateTextureFromSurface(render, surface);
+	SDL_FreeSurface(surface);
+	SDL_RenderCopy(render,fondo,NULL,NULL);
+	return 0;
 }
 
 int B(SDL_Renderer* render) {
-
-	SDL_Rect destRect;
-	destRect.w = destRect.h = 200; // Frame de 50x50
-	destRect.x = 0; destRect.y = 400; // Se pinta en la esquina superior izqda
-	SDL_Rect sourceRect;
-	sourceRect.w = 128; sourceRect.h = 82; // Frame de 50x50
-	sourceRect.x = sourceRect.y = 0; // Se pinta en la esquina superior izqda
-	
-	SDL_Texture* texture; // Variable para la textura
+	SDL_Texture* perro; // Variable para la textura
 	string filename = "..\\images\\dog.png"; // Nombre del fichero con la imagen .bmp
 	SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
-	texture = SDL_CreateTextureFromSurface(render, surface);
+	perro = SDL_CreateTextureFromSurface(render, surface);
+	SDL_Rect source;
+	SDL_Rect dest;
+	source.x = source.y = 0;
+	source.w = 128;
+	source.h = 82;
+	dest.x = 0;
+	dest.y = 500;
+	dest.w = 128;
+	dest.h = 82;
 	SDL_FreeSurface(surface);
-	SDL_RenderCopy(render, texture, &sourceRect, &destRect);
+	SDL_RenderCopy(render, perro, &source, &dest);
 
-	return 2;
+	return 1;
 }
 
-int C(SDL_Renderer* render, float posX, SDL_Texture* texture) {
+int C(SDL_Renderer* render, int tiempoFrame,int* posPerro) {
 	
-	SDL_Rect destRect;
-	destRect.w = destRect.h = 200; // Frame de 50x50
-	destRect.x = posX; destRect.y = 400; // Se pinta en la esquina superior izqda
-	SDL_Rect sourceRect;
-	sourceRect.w = 128; sourceRect.h = 82; // Frame de 50x50
-	sourceRect.x = sourceRect.y = 0; // Se pinta en la esquina superior izqda
 
-	
-	SDL_RenderCopy(render, texture, &sourceRect, &destRect);
+	//srcRect.x = textFrameW * int(((SDL_GetTicks() / TIME_PER_FRAME) % 6));
 
+	SDL_Texture* perro; // Variable para la textura
+	string filename = "..\\images\\dog.png"; // Nombre del fichero con la imagen .bmp
+	SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
+	perro = SDL_CreateTextureFromSurface(render, surface);
+	SDL_Rect source;
+	SDL_Rect dest;
+	source.x = 128*int(((SDL_GetTicks() / tiempoFrame) % 6));
+		source.y = 0;
+	source.w = 128;
+	source.h = 82;
+	if (*posPerro > 800) {
+		*posPerro = 0;
+	}
+	*posPerro += 10;
+	dest.x = *posPerro;
+	dest.y = 500;
+	dest.w = 128;
+	dest.h = 82;
+	SDL_FreeSurface(surface);
+	SDL_RenderCopy(render, perro, &source, &dest);
+
+	return 1;
+}
+
+int F(SDL_Renderer* render, int tiempoFrame, int* posHeli) {
+	//srcRect.x = textFrameW * int(((SDL_GetTicks() / TIME_PER_FRAME) % 6));
+	SDL_Texture* heli; // Variable para la textura
+	string filename = "..\\images\\helicopter.png"; // Nombre del fichero con la imagen .bmp
+	SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
+	heli = SDL_CreateTextureFromSurface(render, surface);
+	SDL_Rect source;
+	SDL_Rect dest;
+	source.x = 128 * int(((SDL_GetTicks() / tiempoFrame) % 5));
+	source.y = 0;
+	source.w = 128;
+	source.h = 82;
+	if (*posHeli < 0) {
+		*posHeli = 800;
+	}
+	*posHeli -= 10;
+	dest.x = *posHeli;
+	dest.y = 0;
+	dest.w = 128;
+	dest.h = 82;
+	SDL_FreeSurface(surface);
+	SDL_RenderCopy(render, heli, &source, &dest);
 	
 	return 1;
 }
 
 
-
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[]) {
 	firstTest();
 	return 0;
 }
