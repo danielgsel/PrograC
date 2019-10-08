@@ -1,4 +1,3 @@
-﻿  Ej2.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
-  HolaSDL.vcxproj -> C:\Universidad\TPVDani\PrograC\SLD\ProyectosSDL\bin\HolaSDLDebug.exe
+﻿  Texture.cpp
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: sÝmbolo externo _SDL_main sin resolver al que se hace referencia en la funci¾n _main_utf8
+C:\Universidad\TPVDani\PrograC\SLD\ProyectosSDL\bin\HolaSDLDebug.exe : fatal error LNK1120: 1 externos sin resolver

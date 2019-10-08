@@ -4,22 +4,30 @@
 #include "checkML.h"
 #include <iostream>
 #include <string>
-#include "Textura.h"
+#include "Texture.h"
 
 
 using namespace std;
 class DOG
 {
 private:
-	int velX;
-	int velY;
+	int dirX = 0;
+	int dirY = 0;
+	Texture* texture = nullptr;
+	uint x = 0, y = 0;
+	uint w = 0, h = 0;
+	int col=0;
+	int row=0;
+	bool isMoving = true;
+	int velx = 0;
+	
 
 public:
-	DOG();
-	Textura* texture;
-	void print(SDL_Renderer* render);
-	void actPos(SDL_Renderer* render);
-	void actAnim(SDL_Renderer* render,int frame);
-	void newTexture(SDL_Renderer* render,string file);
+	DOG() {}
+	DOG(uint w, uint h, uint x, uint y, Texture* t) : w(w), h(h), x(x), y(y), texture(t) {}
+	~DOG() {}
+	void render() const;
+	void update();
+	void load();
+	void handleEvents(SDL_Event& event);
 };
-

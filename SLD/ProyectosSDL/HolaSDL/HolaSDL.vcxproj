@@ -73,12 +73,12 @@
     <ClCompile Include="Ej3.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Textura.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DOG.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Textura.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

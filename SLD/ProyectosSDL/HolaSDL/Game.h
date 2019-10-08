@@ -4,13 +4,29 @@
 #include "checkML.h"
 #include <iostream>
 #include <string>
-#include "Textura.h"
+#include "Texture.h"
+#include "DOG.h"
 
+	const uint winWidth = 800;
+	const uint winHeight = 600;
+	const uint numTextures = 2;
 class Game
 {
+private:
+	SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
+	DOG* dog = nullptr;
+	bool exit = false;
+	Texture* textures[numTextures];
+
 
 public:
-	void Print(SDL_Renderer* render);
+	Game();
+	~Game();
+	void run();
+	void render() const;
+	void handleEvents();
+	void update();	
 
 
 };

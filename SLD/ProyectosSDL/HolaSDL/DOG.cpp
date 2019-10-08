@@ -8,25 +8,48 @@
 using namespace std;
 
 
-DOG::DOG() {
-	velX = 0;
-	velY = 0;
-	texture = nullptr;
-}
-void DOG::print(SDL_Renderer* render) {
-	texture->Print(render);
+void DOG::load() {
+	texture->load("..\\images\\dog.png", 1, 6);
 }
 
-void DOG::actPos(SDL_Renderer* render ) {
-
-	texture->Move(velX,velY);
+void DOG::render()const {
+	SDL_Rect dest;
+	dest.x = x;
+	dest.y = y;
+	dest.w = w;
+	dest.h = h;
+	texture->renderFrame(dest,row,col);
 }
 
-void DOG::actAnim(SDL_Renderer* render, int frame) {
-	texture->actFrame(render, frame);
+void DOG::update() {
+	
+	x = x + velx;
+
+	if (x > 750) x = 0;
+
+	if (x < 0) x = 750;
 }
 
-void DOG::newTexture(SDL_Renderer* render ,string file) {
-	texture = new Textura();
-	texture->Load(render ,file);
+void DOG::handleEvents(SDL_Event& event) {
+		
+	if (event.type == SDL_KEYDOWN) {
+			switch (event.key.keysym.sym) {
+			
+			case SDLK_d:
+				velx = 0;
+				break;
+			
+			case SDLK_f:
+				velx += 10;
+				break;
+			case SDLK_s:
+				velx -= 10;
+				break;
+
+			}
+
+		}
+
+	
+
 }
