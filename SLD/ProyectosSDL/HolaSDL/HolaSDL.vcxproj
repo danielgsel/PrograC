@@ -71,11 +71,13 @@
     <ClCompile Include="Ej1.cpp" />
     <ClCompile Include="Ej2.cpp" />
     <ClCompile Include="Ej3.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Textura.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DOG.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Textura.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

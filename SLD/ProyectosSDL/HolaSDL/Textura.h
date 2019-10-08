@@ -19,6 +19,7 @@ public:
 	 SDL_Rect dest;
 	void Load(SDL_Renderer* render ,string file);
 	void Print(SDL_Renderer* render);
+	void actFrame(SDL_Renderer* render, int frame );
 	void Move(int velX,int velY);
 
 	

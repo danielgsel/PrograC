@@ -19,6 +19,7 @@ public:
 	Textura* texture;
 	void print(SDL_Renderer* render);
 	void actPos(SDL_Renderer* render);
+	void actAnim(SDL_Renderer* render,int frame);
 	void newTexture(SDL_Renderer* render,string file);
 };
 

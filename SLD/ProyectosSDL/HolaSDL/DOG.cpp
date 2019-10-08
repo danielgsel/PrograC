@@ -22,6 +22,10 @@ void DOG::actPos(SDL_Renderer* render ) {
 	texture->Move(velX,velY);
 }
 
+void DOG::actAnim(SDL_Renderer* render, int frame) {
+	texture->actFrame(render, frame);
+}
+
 void DOG::newTexture(SDL_Renderer* render ,string file) {
 	texture = new Textura();
 	texture->Load(render ,file);

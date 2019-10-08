@@ -99,10 +99,7 @@ void firstTest() {
 }
 
 
-void Teclado() {
 
-
-}
 
 int A(SDL_Renderer* render) {
 

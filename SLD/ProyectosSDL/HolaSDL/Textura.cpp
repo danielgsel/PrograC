@@ -21,8 +21,11 @@ void Textura::Load(SDL_Renderer* render,string file) {
 	SDL_FreeSurface(surface);
 	
 }
+void Textura::actFrame(SDL_Renderer* render, int frame) {
+	src.x = 128 * int(((SDL_GetTicks() / frame) % 6));
+}
 
 void Textura::Move(int velX,int velY) {
-	src.x += velX;
-	src.y += velY;
+	dest.x += velX;
+	dest.y += velY;
 }
