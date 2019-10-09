@@ -6,16 +6,21 @@
 #include <string>
 #include "Texture.h"
 #include "DOG.h"
+#include "Helicopter.h"
+
 
 	const uint winWidth = 800;
 	const uint winHeight = 600;
-	const uint numTextures = 2;
+	const uint numTextures = 3;
+
+
 class Game
 {
 private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	DOG* dog = nullptr;
+	Helicopter* heli = nullptr;
 	bool exit = false;
 	Texture* textures[numTextures];
 

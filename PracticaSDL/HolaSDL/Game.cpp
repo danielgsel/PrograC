@@ -23,6 +23,8 @@ Game::Game() {
 	}
 	dog = new DOG(160,160,0,315,textures[1]);
 
+	heli = new Helicopter(180, 100, 200, 100, textures[2]);
+
 	textures[0]->load("..\\images\\background1.png");
 
 	
@@ -34,7 +36,8 @@ Game::~Game() {
 		delete textures[i];
 	}
 	delete dog;
-	 
+	delete heli;
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -46,7 +49,7 @@ void Game::run() {
 	int tiempoActual, tiempoEmpezar, ultimoTiempo;
 	tiempoEmpezar = SDL_GetTicks();
 	dog ->load();
-	
+	heli->load();
 
 
 	while (!exit) {
@@ -70,7 +73,7 @@ void Game::run() {
 
 void Game::update() {
 	dog->update();
-
+	heli->update();
 }
 
 void Game::render() const {
@@ -85,7 +88,7 @@ void Game::render() const {
 
 
 	dog->render();
-
+	heli->render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -94,7 +97,8 @@ void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) exit = true;
-		dog->handleEvents(event); //Viva Pablo.
+		dog->handleEvents(event);
+		heli->handleEvents(event);
 	}
 	
 }

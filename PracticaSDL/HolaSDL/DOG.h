@@ -8,19 +8,25 @@
 
 
 using namespace std;
+
 class DOG
 {
 private:
+
 	int dirX = 0;
 	int dirY = 0;
+
 	Texture* texture = nullptr;
 
 
 	int x = 0, y = 0;
 	uint w = 0, h = 0;
+
 	int col=0;
 	int row=0;
+
 	bool isMoving = true;
+
 	int velx = 0;
 	int updates = 0, updatesPerFrame = 2;
 	

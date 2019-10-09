@@ -118,7 +118,7 @@ int B(SDL_Renderer* render) {
 	SDL_Surface* surface = IMG_Load(filename.c_str()); // Solo para bmps
 	perro = SDL_CreateTextureFromSurface(render, surface);
 	SDL_Rect source;
-	SDL_Rect dest;
+	SDL_Rect dest;   
 	source.x = source.y = 0;
 	source.w = 128;
 	source.h = 82;
