@@ -25,12 +25,18 @@ void DOG::update() {
 	
 	x = x + velx;
 
-	if (x > 750) x = 0;
+	if (x > 800) x = -100;
 
-	if (x < 0) x = 750;
+	if (x < -110) x = 750;
 
 	updates++;
-	if (updates >= updatesPerFrame) { col++; updates = 0; }
+	if (updates >= updatesPerFrame) {
+		if (velx == 0) col = 2;
+		else {
+			col++; updates = 0;
+		}
+	}
+
 	if (col >= 6) col = 0;
 }
 

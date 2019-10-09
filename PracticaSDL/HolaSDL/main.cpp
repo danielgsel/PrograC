@@ -10,8 +10,8 @@ using namespace std;
 using uint = unsigned int;
 
 int main(int argc, char* argv[]){
-	Game* game = new Game();
-	game->run();
+	Game game;
+	game.run();
 
 	return 1;
 }

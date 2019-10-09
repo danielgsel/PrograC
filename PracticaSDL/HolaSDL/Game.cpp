@@ -11,7 +11,7 @@ using namespace std;
 
 Game::Game() {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("First test with SDL", SDL_WINDOWPOS_CENTERED,
+	window = SDL_CreateWindow("Untitled Dog Game", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr)
@@ -21,7 +21,7 @@ Game::Game() {
 		textures[i] = new Texture(renderer);
 
 	}
-	dog = new DOG(160,160,0,300,textures[1]);
+	dog = new DOG(160,160,0,315,textures[1]);
 
 	textures[0]->load("..\\images\\background1.png");
 
@@ -33,6 +33,8 @@ Game::~Game() {
 	for (uint i = 0; i < numTextures; i++) {
 		delete textures[i];
 	}
+	delete dog;
+	 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -92,7 +94,7 @@ void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.type == SDL_QUIT) exit = true;
-		dog->handleEvents(event);
+		dog->handleEvents(event); //Viva Pablo.
 	}
 	
 }

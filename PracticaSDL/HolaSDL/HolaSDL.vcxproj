@@ -70,12 +70,14 @@
   <ItemGroup>
     <ClCompile Include="Dog.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Helicopter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dog.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Helicopter.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
