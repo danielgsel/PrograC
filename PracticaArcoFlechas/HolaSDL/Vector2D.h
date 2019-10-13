@@ -11,7 +11,7 @@ private:
 
 public:
 	Vector2D();
-	Vector2D(unsigned int newX, unsigned int newY);
+	Vector2D(int newX, int newY);
 	void operator+(Vector2D other);
 	void operator-(Vector2D other);
 	void operator*(int other);

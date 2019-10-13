@@ -58,9 +58,6 @@ void Game::run() {
 		handleEvents();
 		update();
 		render();
-
-
-
 		ultimoTiempo = tiempoActual;
 		tiempoActual = SDL_GetTicks() - tiempoEmpezar;
 		if (SDL_GetTicks() - (ultimoTiempo + tiempoEmpezar) < 100) {

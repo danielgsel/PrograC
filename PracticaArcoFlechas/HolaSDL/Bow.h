@@ -4,26 +4,27 @@
 #include "SDL_image.h"
 #include <string>
 #include "Arrow.h"
-#include "Game.h"
-
+//#include "Game.h"
+class Game;
+using uint = unsigned int;
 class Bow
 {
 
 private:
-	Vector2D position;
-	int w;
-	int h;
+	Vector2D position=Vector2D(50,0);
+	Vector2D vel=  Vector2D();        //En el cpp estoy cambiando su valor constatemente, habría que busca otra forma de imlementarlo para que no cambie su valor
+	uint w=0;
+	uint h=0;
 	int velocidadMovimiento = 10;
-	Vector2D vel;
 	Texture* texture = nullptr;
-	Arrow* chargedArrow;
-	Game* game;
-	bool charged;
+	//Arrow puta;
+	//Game* game;
+	bool charged=false;
 public:
-	Bow();
-	Bow(uint w, uint h, uint x, uint y, Texture* t) : w(w), h(h), position(Vector2D(x,y)), texture(t) {}
+	Bow() {};
+	Bow(uint w, uint h, Texture* t) : w(w), h(h), texture(t) {}
 	void load();
-	void render();
+	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);
 

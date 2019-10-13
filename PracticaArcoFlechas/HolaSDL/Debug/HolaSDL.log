@@ -1,15 +1,14 @@
-﻿  Dog.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
+﻿  Ballon.cpp
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(21,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+  Bow.cpp
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(22,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Bow.cpp(22,25): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
   Game.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
-  Helicopter.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Bow.cpp(23,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
   main.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
-  Texture.cpp
   Generando código...
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
-  HolaSDL.vcxproj -> C:\Universidad\TPVDani\PrograC\PracticaSDL\bin\SDLDebug.exe
+  HolaSDL.vcxproj -> C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\bin\SDLDebug.exe

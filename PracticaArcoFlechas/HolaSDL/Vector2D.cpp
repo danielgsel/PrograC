@@ -3,11 +3,12 @@
 
 
 using namespace std;
+using uint = unsigned int;
 Vector2D::Vector2D() {
 	x = 0;
 	y = 0;
 }
-Vector2D::Vector2D(unsigned int newX, unsigned int newY) {
+Vector2D::Vector2D(int newX, int newY) {
 	x = newX;
 	y = newY;
 }

@@ -28,12 +28,10 @@ public:
 	Texture(SDL_Renderer* r, string filename, uint numRows = 1, uint numCols = 1) : renderer(r) { load(filename, numRows, numCols); };
 	~Texture() { freee(); };
 	void freee();
-
 	int getW() const { return w; };
 	int getH() const { return h; };
 	uint getNumCols() const { return numCols; };
 	SDL_Texture* getTexture() const { return texture; };
-
 	void load(string filename, uint numRows = 1, uint numCols = 1);
 	void render(const SDL_Rect& rect, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 	void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_FLIP_NONE) const;

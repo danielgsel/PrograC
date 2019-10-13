@@ -10,6 +10,7 @@ using namespace std;
 using uint = unsigned int;
 
 int main(int argc, char* argv[]){
+	
 	Game game;
 	game.run();
 
