@@ -37,7 +37,7 @@ Game::Game() {
 	textures[2]->load("..\\images\\Bow1.png");
 	textures[3]->load("..\\images\\Arrow1.png");
 	textures[4]->load("..\\images\\Arrow2.png");
-	textures[5]->load("..\\images\\balloons.png");
+	textures[5]->load("..\\images\\balloons.png",7,6);
 	textures[6]->load("..\\images\\digits1.png");
 
 	 bow = new Bow(160,160,textures[1]);

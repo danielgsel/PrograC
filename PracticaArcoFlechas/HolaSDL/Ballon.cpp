@@ -10,6 +10,7 @@ Ballon::Ballon() {
 	//game=nullptr;
 	poped=false;
 	timePoped = 0;;
+	//balloonRow = 1+ (rand() % (6));
 }
 
 void Ballon::load() {
@@ -22,8 +23,8 @@ void Ballon::render() {
 	dest.y = position.getY();
 	dest.w = w ;
 	dest.h = h ;
-	texture->render(dest);
-	//texture->renderFrame(dest,row,col);
+	//texture->render(dest);
+	texture->renderFrame(dest, 2, 1);
 }
 
 bool Ballon::update() {

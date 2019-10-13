@@ -24,6 +24,8 @@ private:
 	//Game* game;   para mas adelante
 	bool poped=false;
 	int timePoped=0;
+	int balloonRow;
+
 public:
 	Ballon();
 	Ballon(uint w, uint h, Texture* t) : w(w), h(h), texture(t) {}
