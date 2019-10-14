@@ -17,10 +17,6 @@ Game::Game() {
 	if (window == nullptr || renderer == nullptr)
 		cout << "Error cargando SDL" << endl;
 
-	for (uint i = 0; i < numTextures; i++) {
-		textures[i] = new Texture(renderer);
-
-	}
 
 	/*Orden de las texturas para cargar
 	0=background
@@ -32,13 +28,13 @@ Game::Game() {
 	6=letras
 	*/
 
-	textures[0]->load("..\\images\\bg1.png");
-	textures[1]->load("..\\images\\Bow2.png");
-	textures[2]->load("..\\images\\Bow1.png");
-	textures[3]->load("..\\images\\Arrow1.png");
-	textures[4]->load("..\\images\\Arrow2.png");
-	textures[5]->load("..\\images\\balloons.png",7,6);
-	textures[6]->load("..\\images\\digits1.png");
+	textures[0] = new Texture(renderer, "..\\images\\bg1.png");
+	textures[1]= new Texture(renderer, "..\\images\\Bow2.png"); 
+	textures[2] = new Texture(renderer, "..\\images\\Bow1.png");
+	textures[3] = new Texture(renderer, "..\\images\\Arrow1.png"); 
+	textures[4] = new Texture(renderer, "..\\images\\Arrow2.png"); 
+	textures[5] = new Texture(renderer, "..\\images\\balloons.png",7,6);
+	textures[6] = new Texture(renderer, "..\\images\\digits1.png",1,10);
 
 	 bow = new Bow(160,160,textures[1]);
 	 for (int i = 0; i < numBalloons; i++) {
@@ -63,12 +59,6 @@ Game::~Game() {
 void Game::run() {
 	int tiempoActual, tiempoEmpezar, ultimoTiempo;
 	tiempoEmpezar = SDL_GetTicks();
-
-	//Carga de todos los objetos
-	bow->load();
-	for (int i = 0; i < numBalloons; i++) {
-		ballons.at(i)->load();
-	}
 	
 	//BUCLE PRINCIPAL DEL JUEGO
 	while (!exit) {
@@ -90,11 +80,16 @@ void Game::update() {
 	bow->update();
 	//Los globos al estar en un array todos guardados lo hago con el bucle, las flechas tienen una estructura similar por lo que será lo mismo
 	for (int i = 0; i < numBalloons; i++) {
-		ballons.at(i)->update();
+		if (ballons.at(i)->update()) {    // Si alguno me dice que se ha salido de antalla genero uno nuevo
+			generateBalloons(&ballons, i);
+		}
 	}
+}
 
-
-	//Hacer un metodo privado que se encargue de generar globos
+void Game::generateBalloons(vector<Ballon*>* ball, int i) {
+	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
+			ball->at(i)->~Ballon();
+			ball->at(i) = new Ballon(160, 160, textures[5]);
 }
 
 void Game::render() const {

@@ -9,7 +9,7 @@ class Arrow
 {
 
 private:
-	Vector2D position;
+	Point2D position;
 	int w;
 	int h;
 	
@@ -18,7 +18,6 @@ private:
 
 public:
 	Arrow();
-	void load();
 	void render();
 	void setVel(double x, double y);
 	void update();

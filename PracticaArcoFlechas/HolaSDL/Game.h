@@ -38,6 +38,7 @@ public:
 	Game();
 	~Game();
 	void run();
+	void generateBalloons(vector<Ballon*> *ball, int i);
 	void render() const;
 	void handleEvents();
 	void update();	

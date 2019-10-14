@@ -2,9 +2,7 @@
 #include "Game.h"
 
 
-void Bow::load() {
-	texture->load("..\\images\\Bow2.png", 1, 1);
-}
+
 
 void Bow::render() {
 	SDL_Rect dest;
@@ -18,6 +16,7 @@ void Bow::render() {
 void Bow::update() {
 	
 	position.setX(position.getX() + vel.getX());
+	if (!(position.getY() + vel.getY() < 0) && !(position.getY() + vel.getY()+h > winHeight))   //Para que el arco no se salga de la pantalla
 	position.setY(position.getY() + vel.getY());
 	//Los pongo a 0 aqui porque el bucle de handle events se ejecuta muchas veces y en ese caso nada mas ponerla a 100 se volveria a poner  0
 	vel.setX(0);
@@ -30,10 +29,10 @@ void Bow::handleEvents(SDL_Event& event) {
 	if (event.type == SDL_KEYDOWN) {
 		switch (event.key.keysym.sym) {
 		case SDLK_w:
-			vel.setY(-10);
+			vel.setY(-velocidadMovimiento);
 			break;
 		case SDLK_s:
-			vel.setY(10);
+			vel.setY(velocidadMovimiento);
 			break;
 		case SDLK_a:
 			charged = true;

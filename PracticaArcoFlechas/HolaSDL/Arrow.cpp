@@ -17,10 +17,6 @@ Arrow::Arrow() {
 
 }
 
-void Arrow::load() {
-	//texture->load("..\\images\\Arrow1.png",1,1);
-}
-
 void Arrow::setVel(double x, double y) {
 	vel.setX(x);
 	vel.setY(y);
@@ -36,8 +32,9 @@ void Arrow::render() {
 }
 
 void Arrow::update() {
-	position.setX(position.getX() + vel.getX());
+	
 	position.setY(position.getY() + vel.getY());
+	position.setX(position.getX() + vel.getX());
 
 
 	//Si se sale de la derecha lo pongo a 0 POR AHORA	

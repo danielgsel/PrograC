@@ -11,19 +11,18 @@ class Bow
 {
 
 private:
-	Vector2D position=Vector2D(50,0);
+	Point2D position=Vector2D(50,0);
 	Vector2D vel=  Vector2D();        //En el cpp estoy cambiando su valor constatemente, habría que busca otra forma de imlementarlo para que no cambie su valor
+	
 	uint w=0;
 	uint h=0;
 	int velocidadMovimiento = 10;
 	Texture* texture = nullptr;
-	//Arrow puta;
 	//Game* game;
 	bool charged=false;
 public:
 	Bow() {};
 	Bow(uint w, uint h, Texture* t) : w(w), h(h), texture(t) {}
-	void load();
 	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);

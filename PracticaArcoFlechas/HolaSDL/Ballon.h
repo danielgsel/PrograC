@@ -12,14 +12,14 @@ using uint = unsigned int;
 class Ballon
 {
 private:
+	//Point2D position = Vector2D(250 + ((rand() % 10) * 50), winHeight + (rand() % 10) * 50); Si quiero obtener el alto de la venana se queja de que no es un identificador válido
 
-	Vector2D position = Vector2D(250+((rand()%10)*50),300); // la posicion en x es random
-	uint w=3072;   //Numero de pixels que tiene cada cosa
-	uint h=3584;
-	uint row = 1;//7 tiene
-	uint col = 1;//6 tiene
-	int velocidadMovimiento = 10;
-	Vector2D vel=Vector2D(0,-5);
+	Point2D position = Vector2D(250+((rand()%10)*50),600+(rand() % 10) * 50); // las posiciones en las que aparecen son random
+	uint w=70;   //Numero de pixels que tiene cada cosa
+	uint h=100;
+	uint row = (rand() % 7);//7 tiene
+	uint col = 0;//6 tiene
+	Vector2D vel = Vector2D(0,-(rand() % 10));  //Velocidad random para cada globo
 	Texture* texture=nullptr;
 	//Game* game;   para mas adelante
 	bool poped=false;
@@ -29,7 +29,6 @@ private:
 public:
 	Ballon();
 	Ballon(uint w, uint h, Texture* t) : w(w), h(h), texture(t) {}
-	void load();
 	void render();
 	bool update();
 	

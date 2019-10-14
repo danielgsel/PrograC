@@ -24,3 +24,5 @@ public:
 	void normalize();
 };
 
+using Point2D = Vector2D;
+
