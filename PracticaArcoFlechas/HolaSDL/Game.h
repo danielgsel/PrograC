@@ -17,9 +17,9 @@ using uint = unsigned int;
 	const uint winHeight = 600;
 	const uint numTextures = 7;
 	const uint numBalloons = 6;
-	const uint FRAMERATE = 100;
+	const uint FRAMERATE = 5;
 	const uint velBow = 10;
-	const uint velBallon = 20;
+	const int velBallon = 1;
 
 
 class Game

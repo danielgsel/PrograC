@@ -29,7 +29,7 @@ void Ballon::render() {
 }
 
 bool Ballon::update() {
-	position.setX(position.getX()+vel.getX());
+	//position.setX(position.getX()+vel.getX());
 	position.setY(position.getY() + vel.getY());	
 	return(position.getY()+h < 0);// || CONDICION DE QUE EL GLOBO HA SIDO PINCHADO  TERMINÓ LA ANIMACION);  // depende de si el globo se ha salido por arriba (hago 0- h para que el globo salga del todo 
 	//Lo de que devuelva el booleano no lo he tenido en cuenta aun. Solo he hecho que se muevan hacia arriba y ya

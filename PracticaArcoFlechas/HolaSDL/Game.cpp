@@ -36,9 +36,9 @@ Game::Game() {
 	textures[5] = new Texture(renderer, "..\\images\\balloons.png",7,6);
 	textures[6] = new Texture(renderer, "..\\images\\digits1.png",1,10);
 
-	 bow = new Bow(100,100,textures[1]);
+	 bow = new Bow(100,100,textures[1],velBow);
 	 for (int i = 0; i < numBalloons; i++) {
-		 ballons.push_back(new Ballon(100,100,textures[5]));
+		 ballons.push_back(new Ballon(100,100,textures[5], velBallon));
 	 }
 
 	
@@ -64,21 +64,14 @@ Game::~Game() {
 
 
 void Game::run() {
-	int tiempoActual, tiempoEmpezar, ultimoTiempo;
-	tiempoEmpezar = SDL_GetTicks();
+
 	
 	//BUCLE PRINCIPAL DEL JUEGO
 	while (!exit) {
-		tiempoActual = SDL_GetTicks() - tiempoEmpezar;
+		
 		handleEvents();
 		update();
 		render();
-		ultimoTiempo = tiempoActual;
-		tiempoActual = SDL_GetTicks() - tiempoEmpezar;
-		//DELAY PARA CONTROLAR LOS FPS
-		if (SDL_GetTicks() - (ultimoTiempo + tiempoEmpezar) < 1000) {
-			SDL_Delay(100 - (SDL_GetTicks() - (ultimoTiempo + tiempoEmpezar)));
-		}
 	}
 
 }
@@ -92,12 +85,14 @@ void Game::update() {
 			generateBalloons(&ballons, i);
 		}
 	}
+	//DELAY PARA CONTROLAR LOS FPS
+	SDL_Delay(FRAMERATE);
 }
 
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
 			ball->at(i)->~Ballon();
-			ball->at(i) = new Ballon(100, 100, textures[5]);
+			ball->at(i) = new Ballon(100, 100, textures[5],velBallon);
 }
 
 void Game::render() const {

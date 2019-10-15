@@ -22,7 +22,7 @@ private:
 	bool charged=false;
 public:
 	Bow() {};
-	Bow(uint w, uint h, Texture* t) : w(w), h(h), texture(t) {}
+	Bow(uint w, uint h, Texture* t, int velMov) : w(w), h(h), texture(t),velocidadMovimiento(velMov) {}
 	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);
