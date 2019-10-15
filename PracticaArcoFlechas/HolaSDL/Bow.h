@@ -14,8 +14,8 @@ private:
 	Point2D position=Vector2D(50,0);
 	Vector2D vel=  Vector2D();        //En el cpp estoy cambiando su valor constatemente, habría que busca otra forma de imlementarlo para que no cambie su valor
 	
-	uint w=0;
-	uint h=0;
+	uint w=200;
+	uint h = 200;
 	int velocidadMovimiento = 10;
 	Texture* texture = nullptr;
 	//Game* game;

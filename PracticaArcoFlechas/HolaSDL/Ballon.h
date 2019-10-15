@@ -21,9 +21,9 @@ private:
 	uint col = 0;//6 tiene
 	Vector2D vel = Vector2D(0,-(rand() % 10));  //Velocidad random para cada globo
 	Texture* texture=nullptr;
-	//Game* game;   para mas adelante
 	bool poped=false;
-	int timePoped=0;
+	//int timePoped=0;
+	//Game* game;   para mas adelante
 	int balloonRow;
 
 public:

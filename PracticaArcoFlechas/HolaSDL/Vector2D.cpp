@@ -12,19 +12,22 @@ Vector2D::Vector2D(int newX, int newY) {
 	x = newX;
 	y = newY;
 }
+//SUMA 
 void Vector2D::operator+(Vector2D other) {
 	x = x + other.getX();
 	y = y + other.getY();
 }
+//RESTA
 void Vector2D::operator-(Vector2D other) {
 	x = x - other.getX();
 	y = y - other.getY();
 }
+//ESCALAR * VECTOR
 void Vector2D::operator*(int other) {    
 	x = x *other;
 	y = y *other;
 }
-//Producto escalar
+//PRODUCTO ESCALAR
 int Vector2D::operator*(Vector2D other) {                    
 	return((x*other.getX())+(y*other.getY()));
 }

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Texture::freee() {
+void Texture::liberar() {     //Lo he llamado liberar ya que cuando era freee me solía dar errores al terminar la ejecucion
 	SDL_DestroyTexture(texture);
 	texture = nullptr;
 	w = h = 0;
@@ -12,7 +12,7 @@ void Texture::freee() {
 void Texture::load(string filename, uint nRows, uint nCols) {
 	SDL_Surface* tempSurface = IMG_Load(filename.c_str());
 	if (tempSurface == nullptr) throw "Error loading surface from " + filename;
-	freee();
+	liberar();
 	texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
 	if (texture == nullptr) throw "Error loading texture from " + filename;
 	numRows = nRows;

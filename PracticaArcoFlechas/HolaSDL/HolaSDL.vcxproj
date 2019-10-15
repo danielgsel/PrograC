@@ -71,7 +71,6 @@
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="Ballon.cpp" />
     <ClCompile Include="Bow.cpp" />
-    <ClCompile Include="Dog.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -81,7 +80,6 @@
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="Ballon.h" />
     <ClInclude Include="Bow.h" />
-    <ClInclude Include="Dog.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2D.h" />

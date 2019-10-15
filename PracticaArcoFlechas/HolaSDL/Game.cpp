@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Texture.h"
-#include "DOG.h"
+
 
 
 using namespace std;
@@ -36,9 +36,9 @@ Game::Game() {
 	textures[5] = new Texture(renderer, "..\\images\\balloons.png",7,6);
 	textures[6] = new Texture(renderer, "..\\images\\digits1.png",1,10);
 
-	 bow = new Bow(160,160,textures[1]);
+	 bow = new Bow(100,100,textures[1]);
 	 for (int i = 0; i < numBalloons; i++) {
-		 ballons.push_back(new Ballon(160,160,textures[5]));
+		 ballons.push_back(new Ballon(100,100,textures[5]));
 	 }
 
 	
@@ -46,6 +46,13 @@ Game::Game() {
 }
 
 Game::~Game() {
+	//Destruyo todos los objetos  teniendo en cuenta que pueden estar en vectores
+	bow->~Bow();
+	bow = nullptr;
+	for (int i = 0; i < ballons.size(); i++) {
+		ballons.at(i)->~Ballon();
+		ballons.at(i) = nullptr;
+	}
 	for (uint i = 0; i < numTextures; i++) {
 		delete textures[i];
 	}	
@@ -73,6 +80,7 @@ void Game::run() {
 			SDL_Delay(100 - (SDL_GetTicks() - (ultimoTiempo + tiempoEmpezar)));
 		}
 	}
+
 }
 
 void Game::update() {
@@ -89,15 +97,17 @@ void Game::update() {
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
 			ball->at(i)->~Ballon();
-			ball->at(i) = new Ballon(160, 160, textures[5]);
+			ball->at(i) = new Ballon(100, 100, textures[5]);
 }
 
 void Game::render() const {
 	SDL_RenderClear(renderer);
+	//Prepao el rect donde se va a dibujar
 	SDL_Rect dest;
 	dest.x = 0;	dest.y = 0;
 	dest.w = winWidth; dest.h = winHeight;	
 	textures[0]->render(dest);
+	//LLamo a cada objeto para que se dibuje
 	bow->render();
 	for (int i = 0; i < numBalloons; i++) {
 		ballons.at(i)->render();

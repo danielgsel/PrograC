@@ -5,6 +5,7 @@
 
 
 void Bow::render() {
+	//Preparo el rect y o paso para su renderizado
 	SDL_Rect dest;
 	dest.x = position.getX();
 	dest.y = position.getY();
@@ -15,6 +16,7 @@ void Bow::render() {
 
 void Bow::update() {
 	
+	//Todo el rato le digo que se mueva con la velocidad que tenga, que puede ser 0
 	position.setX(position.getX() + vel.getX());
 	if (!(position.getY() + vel.getY() < 0) && !(position.getY() + vel.getY()+h > winHeight))   //Para que el arco no se salga de la pantalla
 	position.setY(position.getY() + vel.getY());
@@ -28,6 +30,7 @@ void Bow::handleEvents(SDL_Event& event) {
 
 	if (event.type == SDL_KEYDOWN) {
 		switch (event.key.keysym.sym) {
+			//Movimiento vertical y carga
 		case SDLK_w:
 			vel.setY(-velocidadMovimiento);
 			break;
@@ -36,12 +39,12 @@ void Bow::handleEvents(SDL_Event& event) {
 			break;
 		case SDLK_a:
 			charged = true;
-			//texture->load("..\\images\\bow1.png",1,1);   //Para cuando el bow pueda disparar
+			texture->load("..\\images\\bow1.png",1,1);   //Para cuando el bow pueda disparar
 			break;
 		case SDLK_d:
 			if (charged) {
 				charged = false;
-				//texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
+				texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
 			}
 			break;
 		}

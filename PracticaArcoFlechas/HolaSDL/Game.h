@@ -9,7 +9,7 @@
 #include "Arrow.h"
 #include "Ballon.h"
 #include <vector>
-#include "DOG.h"
+
 
 using uint = unsigned int;
 
@@ -17,7 +17,7 @@ using uint = unsigned int;
 	const uint winHeight = 600;
 	const uint numTextures = 7;
 	const uint numBalloons = 6;
-	const uint frameRate = 100;
+	const uint FRAMERATE = 100;
 	const uint velBow = 10;
 	const uint velBallon = 20;
 
@@ -28,10 +28,11 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	Bow* bow =nullptr;
-	//vector<Arrow> arrows;
 	vector<Ballon*> ballons;
 	bool exit = false;
 	Texture* textures[numTextures];
+	//vector<Arrow> arrows;
+	//int puntuacion;
 
 
 public:
