@@ -31,8 +31,10 @@ private:
 	vector<Ballon*> ballons;
 	bool exit = false;
 	Texture* textures[numTextures];
-	//vector<Arrow> arrows;
+	vector<Arrow*> arrows;
 	//int puntuacion;
+
+
 
 
 public:
@@ -43,6 +45,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void update();	
+	void newArrow();
 
 
 };

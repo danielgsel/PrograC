@@ -9,11 +9,11 @@
 
 
 Arrow::Arrow() {
-	position = Vector2D();
+	/*position = Vector2D();
 	w = 0;
 	h = 0;
 	
-	vel = Vector2D();
+	vel = Vector2D();*/
 
 }
 

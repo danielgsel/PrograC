@@ -18,11 +18,11 @@ private:
 	uint h = 200;
 	int velocidadMovimiento = 10;
 	Texture* texture = nullptr;
-	//Game* game;
+	Game* game;
 	bool charged=false;
 public:
 	Bow() {};
-	Bow(uint w, uint h, Texture* t, int velMov) : w(w), h(h), texture(t),velocidadMovimiento(velMov) {}
+	Bow(uint w, uint h, Texture* t, int velMov, Game* game) : w(w), h(h), texture(t),velocidadMovimiento(velMov), game(game) {}
 	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);

@@ -36,7 +36,7 @@ Game::Game() {
 	textures[5] = new Texture(renderer, "..\\images\\balloons.png",7,6);
 	textures[6] = new Texture(renderer, "..\\images\\digits1.png",1,10);
 
-	 bow = new Bow(100,100,textures[1],velBow);
+	 bow = new Bow(100,100,textures[1],velBow, this);
 	 for (int i = 0; i < numBalloons; i++) {
 		 ballons.push_back(new Ballon(100,100,textures[5], velBallon));
 	 }
@@ -47,10 +47,10 @@ Game::Game() {
 
 Game::~Game() {
 	//Destruyo todos los objetos  teniendo en cuenta que pueden estar en vectores
-	bow->~Bow();
+	delete bow;
 	bow = nullptr;
 	for (int i = 0; i < ballons.size(); i++) {
-		ballons.at(i)->~Ballon();
+		delete ballons.at(i);
 		ballons.at(i) = nullptr;
 	}
 	for (uint i = 0; i < numTextures; i++) {
@@ -72,6 +72,9 @@ void Game::run() {
 		handleEvents();
 		update();
 		render();
+
+		//DELAY PARA CONTROLAR LOS FPS
+		SDL_Delay(FRAMERATE);
 	}
 
 }
@@ -85,13 +88,18 @@ void Game::update() {
 			generateBalloons(&ballons, i);
 		}
 	}
-	//DELAY PARA CONTROLAR LOS FPS
-	SDL_Delay(FRAMERATE);
+
+	for (int i = 0; i < arrows.size(); i++) {
+		arrows.at(i)->update();
+	}
+
+	
+	
 }
 
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
-			ball->at(i)->~Ballon();
+			delete ball->at(i);
 			ball->at(i) = new Ballon(100, 100, textures[5],velBallon);
 }
 
@@ -107,6 +115,10 @@ void Game::render() const {
 	for (int i = 0; i < numBalloons; i++) {
 		ballons.at(i)->render();
 	}
+
+	for (int i = 0; i < arrows.size(); i++) {
+		arrows.at(i)->render();
+	}
 	SDL_RenderPresent(renderer);
 }
 
@@ -116,5 +128,12 @@ void Game::handleEvents() {
 		if (event.type == SDL_QUIT) exit = true;
 		bow->handleEvents(event);		
 	}
+
+
+
+}
+
+void Game::newArrow() {
 	
+	arrows.push_back(new Arrow());
 }
