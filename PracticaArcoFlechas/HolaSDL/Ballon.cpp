@@ -20,7 +20,7 @@ void Ballon::render() {
 	dest.h = h;
 	//Si no esta pinchado que se renderice el primer frame del globo que es el normal
 	if(!poped)
-	texture->renderFrame(dest, row, 0);
+	texture->renderFrame(dest, color, 0);
 	
 	
 	//Para cuando el globo explote
