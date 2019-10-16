@@ -14,12 +14,13 @@ private:
 	int h;
 	
 	Vector2D vel;
-	SDL_Texture* texture;// = Texture();
+	Texture* texture = nullptr;
 
 public:
-	Arrow();
+	Arrow(double x, double y, Texture* t);
+	~Arrow(){}
 	void render();
 	void setVel(double x, double y);
-	void update();
+	bool update();
 };
 

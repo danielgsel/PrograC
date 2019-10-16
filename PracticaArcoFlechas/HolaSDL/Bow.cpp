@@ -44,7 +44,7 @@ void Bow::handleEvents(SDL_Event& event) {
 		case SDLK_d:
 			if (charged) {
 				charged = false;
-				game->newArrow();
+				game->newArrow(position.getX(), position.getY());
 				texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
 			}
 			break;

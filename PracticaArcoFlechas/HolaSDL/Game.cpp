@@ -90,7 +90,13 @@ void Game::update() {
 	}
 
 	for (int i = 0; i < arrows.size(); i++) {
-		arrows.at(i)->update();
+		if (arrows.at(i)->update()) {
+
+			delete arrows.at((i));
+			arrows.erase(arrows.begin() + i);
+			
+
+		}
 	}
 
 	
@@ -133,7 +139,10 @@ void Game::handleEvents() {
 
 }
 
-void Game::newArrow() {
+void Game::newArrow(double x, double y) {
 	
-	arrows.push_back(new Arrow());
+	Arrow* arrow = new Arrow(x,y, textures[3]);
+	arrows.push_back(arrow);
+
+	arrow->setVel(5, 0);
 }

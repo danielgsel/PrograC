@@ -45,7 +45,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void update();	
-	void newArrow();
+	void newArrow(double x, double y);
 
 
 };

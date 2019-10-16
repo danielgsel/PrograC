@@ -8,18 +8,23 @@
 
 
 
-Arrow::Arrow() {
-	/*position = Vector2D();
-	w = 0;
-	h = 0;
+Arrow::Arrow(double x, double y, Texture* t) {
+	position = Vector2D();
+	w = 100;
+	h = 30;
+	position.setX(x);
+	position.setY(y+40);
+
+	texture = t;
 	
-	vel = Vector2D();*/
+	vel = Vector2D();
 
 }
 
 void Arrow::setVel(double x, double y) {
 	vel.setX(x);
 	vel.setY(y);
+
 }
 
 void Arrow::render() {
@@ -28,19 +33,18 @@ void Arrow::render() {
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
-	//texture->render();
+	texture->render(dest);
 }
 
-void Arrow::update() {
+bool Arrow::update() {
 	
 	position.setY(position.getY() + vel.getY());
 	position.setX(position.getX() + vel.getX());
 
 
-	//Si se sale de la derecha lo pongo a 0 POR AHORA	
-	if (position.getX() > 800) {  
-		position.setX(0);
-		position.setY(0);
+	if (position.getX() >= 800) {
+		return true;
 	}
+	else return false;
 	
 }
