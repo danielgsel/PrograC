@@ -47,6 +47,9 @@ public:
 	void update();	
 	void newArrow(double x, double y);
 
+	bool arrowHitsBaloon(SDL_Rect* baloon);
+
+	void destroyBaloon(int pos);
 
 };
 

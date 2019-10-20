@@ -48,3 +48,12 @@ bool Arrow::update() {
 	else return false;
 	
 }
+
+SDL_Rect* Arrow::GetRect() {
+	SDL_Rect* dest = new SDL_Rect(); 
+	dest->x = position.getX();
+	dest->y = position.getY();
+	dest->w = w;
+	dest->h = h;
+	return dest;
+}

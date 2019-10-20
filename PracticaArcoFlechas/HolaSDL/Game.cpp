@@ -38,7 +38,7 @@ Game::Game() {
 
 	 bow = new Bow(100,100,textures[1],velBow, this);
 	 for (int i = 0; i < numBalloons; i++) {
-		 ballons.push_back(new Ballon(100,100,textures[5], velBallon));
+		 ballons.push_back(new Ballon(100,100,textures[5], velBallon, this, i));
 	 }
 
 	
@@ -106,7 +106,7 @@ void Game::update() {
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
 			delete ball->at(i);
-			ball->at(i) = new Ballon(100, 100, textures[5],velBallon);
+			ball->at(i) = new Ballon(100, 100, textures[5],velBallon, this, i);
 }
 
 void Game::render() const {
@@ -145,4 +145,24 @@ void Game::newArrow(double x, double y) {
 	arrows.push_back(arrow);
 
 	arrow->setVel(5, 0);
+}
+
+
+bool Game::arrowHitsBaloon(SDL_Rect* baloon) {
+	int i = 0;
+	bool hit = false;
+	//SDL_bool hitSDL = SDL_FALSE;
+	while ((i < arrows.size()) && (hit == false)) {
+		SDL_Rect* res = new SDL_Rect();
+		hit = SDL_IntersectRect(baloon, arrows.at(i)->GetRect(), res);
+		i++;
+	}
+
+	return hit;
+}
+
+
+void Game::destroyBaloon(int pos) {
+	delete ballons.at(pos);
+	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos);
 }

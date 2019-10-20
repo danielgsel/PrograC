@@ -7,6 +7,8 @@ Ballon::Ballon() {
 	 h = 0;
 	vel=Vector2D();
 	poped=false;
+		Game* game;
+
 	//game=nullptr;
 	//timePoped = 0;;
 }
@@ -30,7 +32,30 @@ void Ballon::render() {
 
 bool Ballon::update() {
 	//position.setX(position.getX()+vel.getX());
+
+
+	SDL_Rect* dest = new SDL_Rect();
+	dest->x = position.getX();
+	dest->y = position.getY();
+	dest->w = w;
+	dest->h = h;
+	
+	if (game->arrowHitsBaloon(dest)) {
+		game->destroyBaloon(posV);
+	}
+
 	position.setY(position.getY() + vel.getY());	
 	return(position.getY()+h < 0);// || CONDICION DE QUE EL GLOBO HA SIDO PINCHADO  TERMINÓ LA ANIMACION);  // depende de si el globo se ha salido por arriba (hago 0- h para que el globo salga del todo 
 	//Lo de que devuelva el booleano no lo he tenido en cuenta aun. Solo he hecho que se muevan hacia arriba y ya
+
+
+}
+
+SDL_Rect* Ballon::GetRect() {
+	SDL_Rect* dest = new SDL_Rect();
+	dest->x = position.getX();
+	dest->y = position.getY();
+	dest->w = w;
+	dest->h = h;
+	return dest;
 }

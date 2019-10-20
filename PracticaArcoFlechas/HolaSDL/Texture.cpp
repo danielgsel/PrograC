@@ -4,7 +4,7 @@
 using namespace std;
 
 void Texture::liberar() {     //Lo he llamado liberar ya que cuando era freee me solía dar errores al terminar la ejecucion
-	SDL_DestroyTexture(texture);
+	SDL_DestroyTexture(texture); //Igaual habria que comentar esto que siempre da error, no se borra sola por su cuenta con hacer destroy ?
 	texture = nullptr;
 	w = h = 0;
 }

@@ -22,5 +22,6 @@ public:
 	void render();
 	void setVel(double x, double y);
 	bool update();
+	SDL_Rect* GetRect();
 };
 

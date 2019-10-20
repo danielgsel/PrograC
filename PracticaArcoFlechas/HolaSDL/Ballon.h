@@ -27,12 +27,16 @@ private:
 	//int timePoped=0;
 	//Game* game;   para mas adelante
 	int balloonRow;
+	Game* game;
+	int posV;
 
 public:
 	Ballon();
-	Ballon(uint w, uint h, Texture* t, int velBallon) : w(w), h(h), texture(t),vel(0,-velBallon) {}
+	Ballon(uint w, uint h, Texture* t, int velBallon, Game* game, int posV) : w(w), h(h), texture(t),vel(0,-velBallon), game(game), posV(posV) {}
 	void render();
 	bool update();
+	SDL_Rect* GetRect();
+
 	
 
 
