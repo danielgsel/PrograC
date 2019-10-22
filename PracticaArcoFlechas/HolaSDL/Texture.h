@@ -34,6 +34,7 @@ public:
 	SDL_Texture* getTexture() const { return texture; };
 	void load(string filename, uint numRows = 1, uint numCols = 1);
 	void render(const SDL_Rect& rect, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
+	void renderAngle(const SDL_Rect& destRect, int angle) const;
 	void renderFrame(const SDL_Rect& destRect, int row, int col, int angle = 0, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 };
 

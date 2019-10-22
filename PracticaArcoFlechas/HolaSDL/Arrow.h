@@ -15,10 +15,11 @@ private:
 	
 	Vector2D vel;
 	int maxVel = 100;
+	int angulo = 0;
 	Texture* texture = nullptr;
 
 public:
-	Arrow(double x, double y, Texture* t);
+	Arrow(double x, double y, Texture* t, int angle);
 	~Arrow(){}
 	void render();
 	void setVel(double x, double y);

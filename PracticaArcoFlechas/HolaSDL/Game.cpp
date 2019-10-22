@@ -142,12 +142,21 @@ void Game::handleEvents() {
 
 }
 
-void Game::newArrow(double x, double y,int speed) {
+void Game::newArrow(double x, double y,int speed,int rotatio) {
 	
-	Arrow* arrow = new Arrow(x,y, textures[3]);
+	Arrow* arrow = new Arrow(x,y, textures[3],rotatio);
 	arrows.push_back(arrow);
-
+	if (rotatio == 0)
 	arrow->setVel(speed, 0);
+
+	else {
+		int VelX = cos(-((rotatio* 3.1416) / 180)) * speed;
+		int VelY = -sin(-((rotatio * 3.1416) / 180)) * speed;
+
+		arrow->setVel(VelX, VelY);
+
+
+	}
 }
 
 

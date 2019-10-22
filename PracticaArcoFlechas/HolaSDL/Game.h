@@ -47,7 +47,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void update();	
-	void newArrow(double x, double y,int speed);
+	void newArrow(double x, double y,int speed, int rotatio);
 
 	bool arrowHitsBaloon(SDL_Rect* baloon);
 

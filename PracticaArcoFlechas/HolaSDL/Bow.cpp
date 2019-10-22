@@ -11,7 +11,7 @@ void Bow::render() {
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
-	texture->render(dest);
+	texture->renderAngle(dest,rotation);
 }
 
 void Bow::update() {
@@ -37,6 +37,13 @@ void Bow::handleEvents(SDL_Event& event) {
 		case SDLK_s:
 			vel.setY(velocidadMovimiento);
 			break;
+
+		case SDLK_q:
+			rotation -= 10;
+			break;
+		case SDLK_e:
+			rotation += 10;
+			break;
 		case SDLK_a:
 			charged = true;
 			texture->load("..\\images\\bow1.png",1,1);   //Para cuando el bow pueda disparar
@@ -48,9 +55,12 @@ void Bow::handleEvents(SDL_Event& event) {
 				velocidadFlecha = ((SDL_GetTicks()) - timeCharged)/150; //y una operacion que calcule la velocidad segun el tiempo que haya sacado
 				if (velocidadFlecha > 20)
 					velocidadFlecha = 20;
-				if (velocidadFlecha < 1)
+				if (rotation != 0 && velocidadFlecha < 3)
+					velocidadFlecha = 3;
+				else if (rotation == 0 && velocidadFlecha < 1) {
 					velocidadFlecha = 1;
-				game->newArrow(position.getX(), position.getY(),velocidadFlecha);
+				}
+				game->newArrow(position.getX(), position.getY(),velocidadFlecha,rotation);
 				texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
 			}
 			break;

@@ -22,6 +22,7 @@ private:
 	Texture* texture = nullptr;
 	Game* game;
 	bool charged=false;
+	int rotation = 0;
 public:
 	Bow() {};
 	Bow(uint w, uint h, Texture* t, int velMov, Game* game) : w(w), h(h), texture(t),velocidadMovimiento(velMov), game(game) {}

@@ -8,7 +8,7 @@
 
 
 
-Arrow::Arrow(double x, double y, Texture* t) {
+Arrow::Arrow(double x, double y, Texture* t, int angle) {
 	position = Vector2D();
 	w = 100;
 	h = 30;
@@ -18,7 +18,7 @@ Arrow::Arrow(double x, double y, Texture* t) {
 	texture = t;
 	
 	vel = Vector2D();
-	
+	angulo = angle;
 
 }
 
@@ -34,7 +34,7 @@ void Arrow::render() {
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
-	texture->render(dest);
+	texture->renderAngle(dest, angulo);
 }
 
 bool Arrow::update() {
