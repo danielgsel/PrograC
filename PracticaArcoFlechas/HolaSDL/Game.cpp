@@ -36,12 +36,13 @@ Game::Game() {
 	textures[5] = new Texture(renderer, "..\\images\\balloons.png",7,6);
 	textures[6] = new Texture(renderer, "..\\images\\digits1.png",1,10);
 
+
 	 bow = new Bow(100,100,textures[1],velBow, this);
 	 for (int i = 0; i < numBalloons; i++) {
 		 ballons.push_back(new Ballon(100,100,textures[5], velBallon, this, i));
 	 }
 
-	
+	 marcador = new Marcador(textures[6]);
 
 }
 
@@ -125,6 +126,8 @@ void Game::render() const {
 	for (int i = 0; i < arrows.size(); i++) {
 		arrows.at(i)->render();
 	}
+
+	marcador->render();
 	SDL_RenderPresent(renderer);
 }
 
@@ -139,12 +142,12 @@ void Game::handleEvents() {
 
 }
 
-void Game::newArrow(double x, double y) {
+void Game::newArrow(double x, double y,int speed) {
 	
 	Arrow* arrow = new Arrow(x,y, textures[3]);
 	arrows.push_back(arrow);
 
-	arrow->setVel(5, 0);
+	arrow->setVel(speed, 0);
 }
 
 
@@ -165,4 +168,6 @@ bool Game::arrowHitsBaloon(SDL_Rect* baloon) {
 void Game::destroyBaloon(int pos) {
 	delete ballons.at(pos);
 	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos);
+	puntuacion++;
+	marcador->SetPoints(puntuacion);
 }

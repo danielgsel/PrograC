@@ -40,13 +40,17 @@ void Bow::handleEvents(SDL_Event& event) {
 		case SDLK_a:
 			charged = true;
 			texture->load("..\\images\\bow1.png",1,1);   //Para cuando el bow pueda disparar
-			timeCharged = SDL_GetTicks();///Time_Per_Frame; para saber el segundo en el que due pulsado
+			timeCharged = SDL_GetTicks();
 			break;
 		case SDLK_d:
 			if (charged) {
 				charged = false;
-				//Velocidad= (SDL_Getticks()/time_per_seconds)-timecharged y una operacion que calcule la velocidad segun el tiempo que haya sacado
-				game->newArrow(position.getX(), position.getY());
+				velocidadFlecha = ((SDL_GetTicks()) - timeCharged)/150; //y una operacion que calcule la velocidad segun el tiempo que haya sacado
+				if (velocidadFlecha > 20)
+					velocidadFlecha = 20;
+				if (velocidadFlecha < 1)
+					velocidadFlecha = 1;
+				game->newArrow(position.getX(), position.getY(),velocidadFlecha);
 				texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
 			}
 			break;

@@ -9,6 +9,7 @@
 #include "Arrow.h"
 #include "Ballon.h"
 #include <vector>
+#include "Marcador.h"
 
 
 using uint = unsigned int;
@@ -32,7 +33,8 @@ private:
 	bool exit = false;
 	Texture* textures[numTextures];
 	vector<Arrow*> arrows;
-	//int puntuacion;
+	int puntuacion = 0;
+	Marcador* marcador;
 
 
 
@@ -45,7 +47,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void update();	
-	void newArrow(double x, double y);
+	void newArrow(double x, double y,int speed);
 
 	bool arrowHitsBaloon(SDL_Rect* baloon);
 

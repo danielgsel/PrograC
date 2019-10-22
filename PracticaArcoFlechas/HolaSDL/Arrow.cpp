@@ -18,6 +18,7 @@ Arrow::Arrow(double x, double y, Texture* t) {
 	texture = t;
 	
 	vel = Vector2D();
+	
 
 }
 
