@@ -14,6 +14,7 @@ private:
 	int h;
 	
 	Vector2D vel;
+	int maxVel = 100;
 	Texture* texture = nullptr;
 
 public:
