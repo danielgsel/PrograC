@@ -19,8 +19,8 @@ private:
 	Point2D position = Vector2D(250+((rand()%10)*50),600+(rand() % 10) * 50); // las posiciones en las que aparecen son random
 	uint w=70;   //Numero de pixels que tiene cada cosa
 	uint h=100;
-	uint color = (rand() % 7);//7 tiene
-	uint col = 0;//6 tiene
+	int row = (rand() % 7);//7 tiene
+	int col = 0;//6 tiene
 	Vector2D vel = Vector2D();  //Velocidad random para cada globo
 	Texture* texture=nullptr;
 	bool poped=false;
@@ -29,6 +29,7 @@ private:
 	int balloonRow;
 	Game* game;
 	int posV;
+	int updates = 0;
 
 public:
 	Ballon();

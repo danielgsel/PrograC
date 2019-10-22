@@ -22,8 +22,28 @@ void Ballon::render() {
 	dest.h = h;
 	//Si no esta pinchado que se renderice el primer frame del globo que es el normal
 	if(!poped)
-	texture->renderFrame(dest, color, 0);
+	texture->renderFrame(dest, row, 0);
 	
+	else {
+		if (col < 7) {
+			updates++;
+			if (updates > 10) {
+				
+				updates = 0; col++;
+			}
+			texture->renderFrame(dest, row, col);
+		}
+		else
+			game->destroyBaloon(posV);
+
+		/*if (updates >= updatesPerFrame) {
+			if (velx == 0) col = 2;
+
+			else {
+				col++; updates = 0;
+			}
+		}*/
+	}
 	
 	//Para cuando el globo explote
 	/*else
@@ -41,7 +61,9 @@ bool Ballon::update() {
 	dest->h = h;
 	
 	if (game->arrowHitsBaloon(dest)) {
-		game->destroyBaloon(posV);
+		//En vez de hacer esto hacemos ponemos poped a true, que haga la animacion y al terminar la animacion  llamamos a game->destroyBaloon(posV);
+		poped = true;
+		//game->destroyBaloon(posV);
 	}
 
 	position.setY(position.getY() + vel.getY());	

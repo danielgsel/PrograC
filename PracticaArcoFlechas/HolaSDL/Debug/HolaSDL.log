@@ -1,2 +1,9 @@
-﻿  Texture.cpp
+﻿  Ballon.cpp
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(10,9): warning C4101:  'game': variable local sin referencia
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(19,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(20,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(58,25): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(59,25): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(78,25): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(79,25): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
   HolaSDL.vcxproj -> C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\bin\SDLDebug.exe
