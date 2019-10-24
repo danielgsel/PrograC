@@ -6,7 +6,7 @@
 #include "Arrow.h"
 //#include "Game.h"
 class Game;
-using uint = unsigned int;
+
 class Bow
 {
 

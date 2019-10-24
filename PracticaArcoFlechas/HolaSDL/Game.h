@@ -21,6 +21,7 @@ using uint = unsigned int;
 	const uint FRAMERATE = 5;
 	const uint velBow = 10;
 	const int velBallon = 1;
+	const int numArrows = 7;
 
 
 class Game
@@ -48,9 +49,8 @@ public:
 	void handleEvents();
 	void update();	
 	void newArrow(double x, double y,int speed, int rotatio);
-
+	int arrowsLeft();
 	bool arrowHitsBaloon(SDL_Rect* baloon);
-
 	void destroyBaloon(int pos);
 
 };

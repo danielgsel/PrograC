@@ -2,6 +2,7 @@
 #include "SDL_image.h"
 #include "checkML.h"
 #include <iostream>
+#include <math.h>
 #include <string>
 #include "Texture.h"
 
@@ -41,8 +42,7 @@ Game::Game() {
 	 for (int i = 0; i < numBalloons; i++) {
 		 ballons.push_back(new Ballon(100,100,textures[5], velBallon, this, i));
 	 }
-
-	 marcador = new Marcador(textures[6]);
+	 marcador = new Marcador(textures[6],textures[4],numArrows);
 
 }
 
@@ -118,6 +118,7 @@ void Game::render() const {
 	dest.w = winWidth; dest.h = winHeight;	
 	textures[0]->render(dest);
 	//LLamo a cada objeto para que se dibuje
+	marcador->render();                       //Me interesa que se renderice primero el marcador porque asi no tapa al arco
 	bow->render();
 	for (int i = 0; i < numBalloons; i++) {
 		ballons.at(i)->render();
@@ -127,7 +128,6 @@ void Game::render() const {
 		arrows.at(i)->render();
 	}
 
-	marcador->render();
 	SDL_RenderPresent(renderer);
 }
 
@@ -144,15 +144,15 @@ void Game::handleEvents() {
 
 void Game::newArrow(double x, double y,int speed,int rotatio) {
 	
+
 	Arrow* arrow = new Arrow(x,y, textures[3],rotatio);
 	arrows.push_back(arrow);
+	marcador->arrowShot();
 	if (rotatio == 0)
 	arrow->setVel(speed, 0);
-
 	else {
-		int VelX = cos(-((rotatio* 3.1416) / 180)) * speed;
-		int VelY = -sin(-((rotatio * 3.1416) / 180)) * speed;
-
+		int VelX = cos(-((rotatio* M_PI) / 180)) * speed;
+		int VelY = -sin(-((rotatio * M_PI) / 180)) * speed;   //Si la speed es demasiado pequeño esto va a dar 0, la culpa es de speed
 		arrow->setVel(VelX, VelY);
 
 
@@ -179,4 +179,8 @@ void Game::destroyBaloon(int pos) {
 	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos);
 	puntuacion++;
 	marcador->SetPoints(puntuacion);
+}
+
+int Game::arrowsLeft() {
+	return marcador->arrowsLeft();
 }

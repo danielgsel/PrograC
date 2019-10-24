@@ -34,7 +34,7 @@ void Arrow::render() {
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
-	texture->renderAngle(dest, angulo);
+	texture->renderFrame(dest,0,0, angulo);
 }
 
 bool Arrow::update() {
