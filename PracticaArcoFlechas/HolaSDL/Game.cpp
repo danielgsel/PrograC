@@ -5,6 +5,7 @@
 #include <math.h>
 #include <string>
 #include "Texture.h"
+#include <fstream>
 
 
 
@@ -29,6 +30,7 @@ Game::Game() {
 	6=letras
 	*/
 
+	//Hay que pensar en una forma mejor de inicializar las cosas
 	textures[0] = new Texture(renderer, "..\\images\\bg1.png");
 	textures[1]= new Texture(renderer, "..\\images\\Bow2.png"); 
 	textures[2] = new Texture(renderer, "..\\images\\Bow1.png");
@@ -65,9 +67,41 @@ Game::~Game() {
 
 
 void Game::run() {
-
-	
 	//BUCLE PRINCIPAL DEL JUEGO
+
+	ifstream puntuaciones;
+	puntuaciones.open("puntuaciones.txt");
+	if (puntuaciones.is_open()) {
+		vector<int> record;
+		for (int j = 0; j < 10; j++) {
+			int punt = 0;
+			puntuaciones >> punt;
+			record.push_back(punt);
+		}
+		puntuaciones.close();
+		int k = 0;
+		while (k<record.size() && record.at(k)<marcador->getPoints()) {
+			k++;
+		}
+		if (k < record.size())
+			record.at(2) = 10;
+		ofstream actualizar;
+		actualizar.open("puntuaciones.txt");
+		for (int i = 0; i < record.size(); i++)
+			actualizar << record.at(i) << endl;
+
+	}
+	else {
+
+
+		ofstream myfile;
+		myfile.open("puntuaciones.txt");
+		myfile << marcador->getPoints() << endl;
+
+		for (int i = 0; i < 9; i++)
+			myfile << 0 << endl;
+		myfile.close();
+	}
 	while (!exit) {
 		
 		handleEvents();
@@ -77,6 +111,10 @@ void Game::run() {
 		//DELAY PARA CONTROLAR LOS FPS
 		SDL_Delay(FRAMERATE);
 	}
+	
+	
+	
+
 
 }
 

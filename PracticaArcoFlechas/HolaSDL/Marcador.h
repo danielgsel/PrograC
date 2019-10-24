@@ -21,6 +21,7 @@ public:
 
 	Marcador(Texture* textura, Texture* arrow,int numArrows) :texture(textura), arrowTexture(arrow),arrows(numArrows) {}
 	void render();
+	int getPoints();
 	void SetPoints(int newpoints);
 	void arrowShot();
 	int arrowsLeft();

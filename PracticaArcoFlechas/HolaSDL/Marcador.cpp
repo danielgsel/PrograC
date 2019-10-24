@@ -25,6 +25,9 @@ int Marcador::arrowsLeft() {
 
 	return arrows;
 }
+int Marcador::getPoints() {
+	return points;
+}
 
 void Marcador::render(){
 	int puntos = points;
