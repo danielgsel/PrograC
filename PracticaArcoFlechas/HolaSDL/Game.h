@@ -27,6 +27,12 @@ using uint = unsigned int;
 class Game
 {
 private:
+	struct  mytextures
+	{
+		string file;
+		uint row;
+			uint col;
+	};
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	Bow* bow =nullptr;
@@ -37,8 +43,10 @@ private:
 	int puntuacion = 0;
 	Marcador* marcador;
 
-
-
+	const mytextures mytextures[numTextures] = {{"..\\images\\bg1.png",1,1},{"..\\images\\Bow2.png",1,1},
+	{"..\\images\\Bow1.png",1,1},{"..\\images\\Arrow1.png",1,1},{"..\\images\\Arrow2.png",1,1},
+	{"..\\images\\balloons.png",7,6},{"..\\images\\digits1.png",1,10}
+	};
 
 public:
 	Game();
@@ -48,6 +56,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void update();	
+	void SaveScore();
 	void newArrow(double x, double y,int speed, int rotatio);
 	int arrowsLeft();
 	bool arrowHitsBaloon(SDL_Rect* baloon);

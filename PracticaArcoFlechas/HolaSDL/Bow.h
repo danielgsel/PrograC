@@ -20,12 +20,14 @@ private:
 	int timeCharged = 0;
 	int velocidadFlecha = 0;
 	Texture* texture = nullptr;
+	Texture* textureIddle = nullptr;
+	Texture* textureCharged = nullptr;
 	Game* game;
 	bool charged=false;
 	int rotation = 0;
 public:
-	Bow() {};
-	Bow(uint w, uint h, Texture* t, int velMov, Game* game) : w(w), h(h), texture(t),velocidadMovimiento(velMov), game(game) {}
+	Bow() {}
+	Bow(uint w, uint h, Texture* t,Texture* c, int velMov, Game* game) : w(w), h(h),texture(t), textureIddle(t),textureCharged(c),velocidadMovimiento(velMov), game(game) {}
 	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);

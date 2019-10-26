@@ -11,6 +11,7 @@ void Bow::render() {
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
+	//Le digo que renderice texture, que puede tener cargada la imagen del arco cargado o sin cargar
 	texture->renderFrame(dest,0,0,rotation);
 }
 
@@ -48,7 +49,7 @@ void Bow::handleEvents(SDL_Event& event) {
 			//Pregunto si quedanflechas, si quedan empiezo a cargar si no, nada
 			if (game->arrowsLeft() > 0) {
 				charged = true;
-				texture->load("..\\images\\bow1.png", 1, 1);   //Para cuando el bow pueda disparar
+				texture = textureCharged;
 				timeCharged = SDL_GetTicks();
 			}
 			break;
@@ -64,7 +65,7 @@ void Bow::handleEvents(SDL_Event& event) {
 					velocidadFlecha = 3;
 				}
 				game->newArrow(position.getX(), position.getY(),velocidadFlecha,rotation);
-				texture->load("..\\images\\bow2.png",1,1); // Para cuando el bow pueda disparar
+				texture = textureIddle;
 			}
 			break;
 		}
