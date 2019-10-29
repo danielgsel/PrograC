@@ -14,7 +14,7 @@
 
 using uint = unsigned int;
 
-	const uint winWidth = 800;
+	const uint winWidth = 1500;
 	const uint winHeight = 600;
 	const uint numTextures = 7;
 	const uint numBalloons = 6;

@@ -1,5 +1,6 @@
 perturbadogamer 19
 pertu 17
+pertur 13
 a 10
 b 9
 c 5
@@ -7,4 +8,3 @@ d 5
 e 4
 f 4
 g 3
-h 2

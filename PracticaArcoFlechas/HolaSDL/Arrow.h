@@ -12,6 +12,7 @@ private:
 	Point2D position;
 	int w;
 	int h;
+	int winwidth=800;
 	
 	Vector2D vel;
 	int maxVel = 100;
@@ -19,7 +20,7 @@ private:
 	Texture* texture = nullptr;
 
 public:
-	Arrow(double x, double y, Texture* t, int angle);
+	Arrow(double x, double y, Texture* t, int angle,int wWidth);
 	~Arrow(){}
 	void render();
 	void setVel(double x, double y);

@@ -19,7 +19,6 @@ Game::Game() {
 	if (window == nullptr || renderer == nullptr)
 		cout << "Error cargando SDL" << endl;
 
-
 	/*Orden de las texturas para cargar
 	0=background
 	1=arco sin cargar
@@ -29,16 +28,17 @@ Game::Game() {
 	5=globos
 	6=letras
 	*/
-	for (int i = 0; i < numTextures; i++) {
-		textures[i] = new Texture(renderer,mytextures[i].file,mytextures[i].row,mytextures[i].col);
-	}
+
+		for (int i = 0; i < numTextures; i++) {
+			textures[i] = new Texture(renderer, mytextures[i].file, mytextures[i].row, mytextures[i].col);
+		}
 
 
-	 bow = new Bow(100,100,textures[1],textures[2],velBow, this);
-	 for (int i = 0; i < numBalloons; i++) {
-		 ballons.push_back(new Ballon(100,100,textures[5], velBallon, this, i));
-	 }
-	 marcador = new Marcador(textures[6],textures[4],numArrows);
+		bow = new Bow(100, 100, textures[1], textures[2], velBow, this);
+		for (int i = 0; i < numBalloons; i++) {
+			ballons.push_back(new Ballon(100, 100, textures[5], velBallon, this, i,winWidth,winHeight));
+		}
+		marcador = new Marcador(textures[6], textures[4], numArrows);
 
 }
 
@@ -149,7 +149,7 @@ void Game::update() {
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
 			delete ball->at(i);
-			ball->at(i) = new Ballon(100, 100, textures[5],velBallon, this, i);
+			ball->at(i) = new Ballon(100, 100, textures[5],velBallon, this, i,winWidth,winHeight);
 }
 
 void Game::render() const {
@@ -182,7 +182,7 @@ void Game::handleEvents() {
 
 //Creo un nueva flecha, si la rotacion que me llega no es nula, calculo sus componentes x e y
 void Game::newArrow(double x, double y,int speed,int rotatio) {
-	Arrow* arrow = new Arrow(x,y, textures[3],rotatio);
+	Arrow* arrow = new Arrow(x,y, textures[3],rotatio, winWidth);
 	arrows.push_back(arrow);
 	marcador->arrowShot();
 	if (rotatio == 0)
@@ -213,7 +213,7 @@ bool Game::arrowHitsBaloon(SDL_Rect* baloon) {
 //Borro de memoria el globo
 void Game::destroyBaloon(int pos) {
 	delete ballons.at(pos);
-	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos);
+	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos,winWidth,winHeight);
 	puntuacion++;
 	marcador->SetPoints(puntuacion);
 }

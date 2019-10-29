@@ -24,16 +24,16 @@ private:
 	Vector2D vel = Vector2D();  //Velocidad random para cada globo
 	Texture* texture=nullptr;
 	bool poped=false;
-	//int timePoped=0;
-	//Game* game;   para mas adelante
 	int balloonRow;
 	Game* game;
 	int posV;
+	int winW=800;
+	int winH = 1000;
 	int updates = 0;
 
 public:
 	Ballon();
-	Ballon(uint w, uint h, Texture* t, int velBallon, Game* game, int posV) : w(w), h(h), texture(t),vel(0,-velBallon), game(game), posV(posV) {}
+	Ballon(uint w, uint h, Texture* t, int velBallon, Game* game, int posV,int wWidth,int wHeigth) : w(w), h(h), texture(t),vel(0,-velBallon), game(game), posV(posV) ,winW(wWidth),winH(wHeigth){}
 	void render();
 	bool update();
 	SDL_Rect* GetRect();

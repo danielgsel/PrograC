@@ -8,7 +8,7 @@
 
 
 
-Arrow::Arrow(double x, double y, Texture* t, int angle) {
+Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth) {
 	position = Vector2D();
 	w = 100;
 	h = 30;
@@ -16,7 +16,7 @@ Arrow::Arrow(double x, double y, Texture* t, int angle) {
 	position.setY(y+40);
 
 	texture = t;
-	
+	winwidth = wWidth;
 	vel = Vector2D();
 	angulo = angle;
 
@@ -43,7 +43,7 @@ bool Arrow::update() {
 	position.setX(position.getX() + vel.getX());
 
 
-	if (position.getX() >= 800) {
+	if (position.getX() >= winwidth) {
 		return true;
 	}
 	else return false;
