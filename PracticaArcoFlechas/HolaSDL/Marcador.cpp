@@ -5,9 +5,8 @@ void Marcador::SetPoints(int newpoints) {
 	points = newpoints;
 }
 
+//Devuelve el numero de dígitos que tiene number
 int Marcador::digits(int number) {
-
-
 	int i = 0;
 	while (number != 0) {
 		number = number/ 10;
@@ -30,16 +29,20 @@ int Marcador::getPoints() {
 }
 
 void Marcador::render(){
+
+	//Renderizo los puntos
 	int puntos = points;
 	SDL_Rect dest;
 	dest.x = position.getX();
 	dest.y = position.getY();
 	dest.w = w;
 	dest.h = h;
+	//Si es de solo un dígito
 	if (points <= 9) {
 		texture->renderFrame(dest, 0, points);
 
 	}
+	//Si es de más, hay que ir consiguiendo cada dígito del número
 	else {
 		int ndigits = digits(points);
 		for (int i = ndigits - 1; i >= 0; i--) {

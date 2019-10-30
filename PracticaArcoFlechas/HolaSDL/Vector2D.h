@@ -12,9 +12,9 @@ private:
 public:
 	Vector2D();
 	Vector2D(int newX, int newY);
-	void operator+(Vector2D other);
-	void operator-(Vector2D other);
-	void operator*(int other);
+	Vector2D operator+(Vector2D other);
+	Vector2D operator-(Vector2D other);
+	Vector2D operator*(int other);
 	int operator*(Vector2D other);
 
 	double getX();

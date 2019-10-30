@@ -14,7 +14,6 @@ Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth) {
 	h = 30;
 	position.setX(x);
 	position.setY(y+40);
-
 	texture = t;
 	winwidth = wWidth;
 	vel = Vector2D();
@@ -25,7 +24,6 @@ Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth) {
 void Arrow::setVel(double x, double y) {
 	vel.setX(x);
 	vel.setY(y);
-
 }
 
 void Arrow::render() {
@@ -37,13 +35,9 @@ void Arrow::render() {
 	texture->renderFrame(dest,0,0, angulo);
 }
 
-bool Arrow::update() {
-	
-	position.setY(position.getY() + vel.getY());
-	position.setX(position.getX() + vel.getX());
-
-
-	if (position.getX() >= winwidth) {
+bool Arrow::update() {	
+	position = position + vel;
+	if (position.getX() >= winwidth || position.getX()<=0) {
 		return true;
 	}
 	else return false;

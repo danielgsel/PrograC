@@ -19,7 +19,7 @@ using uint = unsigned int;
 	const uint numTextures = 7;
 	const uint numBalloons = 6;
 	const uint FRAMERATE = 5;
-	const uint velBow = 10;
+	const uint velBow = 5;
 	const int velBallon = 1;
 	const int numArrows = 7;
 

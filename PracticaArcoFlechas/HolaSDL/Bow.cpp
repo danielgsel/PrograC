@@ -17,13 +17,9 @@ void Bow::render() {
 
 void Bow::update() {
 	
-	//Todo el rato le digo que se mueva con la velocidad que tenga, que puede ser 0
-	position.setX(position.getX() + vel.getX());
-	if (!(position.getY() + vel.getY() < 0) && !(position.getY() + vel.getY()+h > winHeight))   //Para que el arco no se salga de la pantalla
-	position.setY(position.getY() + vel.getY());
-	//Los pongo a 0 aqui porque el bucle de handle events se ejecuta muchas veces y en ese caso nada mas ponerla a 100 se volveria a poner  0
-	vel.setX(0);
-	vel.setY(0);
+	if ((position.getY()+vel.getY() > 0) && (position.getY()+vel.getY() + h < winHeight)) {
+		position = position + vel;
+	}
 }
 
 void Bow::handleEvents(SDL_Event& event) {
@@ -35,10 +31,10 @@ void Bow::handleEvents(SDL_Event& event) {
 		case SDLK_w:
 			vel.setY(-velocidadMovimiento);
 			break;
+
 		case SDLK_s:
 			vel.setY(velocidadMovimiento);
 			break;
-
 		case SDLK_q:
 			rotation -= 10;
 			break;
@@ -68,7 +64,19 @@ void Bow::handleEvents(SDL_Event& event) {
 				texture = textureIddle;
 			}
 			break;
+			
 		}
 
 	}
+	else if(event.type == SDL_KEYUP)
+		switch (event.key.keysym.sym) {
+			//Movimiento vertical y carga
+		case SDLK_w:
+			vel.setY(0);
+			break;
+
+		case SDLK_s:
+			vel.setY(0);
+			break;
+		}
 }

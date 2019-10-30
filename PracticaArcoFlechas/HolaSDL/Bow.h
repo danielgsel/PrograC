@@ -16,7 +16,7 @@ private:
 	
 	uint w=200;
 	uint h = 200;
-	int velocidadMovimiento = 10;
+	int velocidadMovimiento = 5;
 	int timeCharged = 0;
 	int velocidadFlecha = 0;
 	Texture* texture = nullptr;

@@ -13,19 +13,22 @@ Vector2D::Vector2D(int newX, int newY) {
 	y = newY;
 }
 //SUMA 
-void Vector2D::operator+(Vector2D other) {
+Vector2D Vector2D::operator+(Vector2D other) {
 	x = x + other.getX();
 	y = y + other.getY();
+	return Vector2D(x,y);
 }
 //RESTA
-void Vector2D::operator-(Vector2D other) {
+Vector2D Vector2D::operator-(Vector2D other) {
 	x = x - other.getX();
 	y = y - other.getY();
+	return Vector2D(x, y);
 }
 //ESCALAR * VECTOR
-void Vector2D::operator*(int other) {    
+Vector2D Vector2D::operator*(int other) {    
 	x = x *other;
 	y = y *other;
+	return Vector2D(x, y);
 }
 //PRODUCTO ESCALAR
 int Vector2D::operator*(Vector2D other) {                    
@@ -52,8 +55,5 @@ void Vector2D::normalize() {
 
 	x = x / normalizador;
 	y = y / normalizador;  
-	//No pongo la expresion de normalizador en vez de la variable porque para 
-	//cuando llegue a normalizar la y la x habra cambiado y no me saldra 
-	//el resultado correcto
      
 }

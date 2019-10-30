@@ -13,7 +13,7 @@ using namespace std;
 
 Game::Game() {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("Untitled Dog Game", SDL_WINDOWPOS_CENTERED,
+	window = SDL_CreateWindow("Arco/Flechas", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr)
@@ -32,8 +32,6 @@ Game::Game() {
 		for (int i = 0; i < numTextures; i++) {
 			textures[i] = new Texture(renderer, mytextures[i].file, mytextures[i].row, mytextures[i].col);
 		}
-
-
 		bow = new Bow(100, 100, textures[1], textures[2], velBow, this);
 		for (int i = 0; i < numBalloons; i++) {
 			ballons.push_back(new Ballon(100, 100, textures[5], velBallon, this, i,winWidth,winHeight));
@@ -44,8 +42,12 @@ Game::Game() {
 
 Game::~Game() {
 	//Destruyo todos los objetos  teniendo en cuenta que pueden estar en vectores
+
 	delete bow;
 	bow = nullptr;
+	delete marcador;
+	marcador = nullptr;
+
 	for (int q = 0; q < arrows.size(); q++)
 	{
 		delete arrows.at(q);
@@ -55,18 +57,17 @@ Game::~Game() {
 		delete ballons.at(i);
 		ballons.at(i) = nullptr;
 	}
-	for (uint i = 0; i < numTextures; i++) {
+	for (int i = 0; i < numTextures; i++) {
 		delete textures[i];
+		textures[i] = nullptr;
 	}	
 
-	delete marcador;
-	marcador = nullptr;
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
 
-//Le pido el jugador su ID
+//Le pido el jugador un nombre
 //Me voy al archivo de puntuaciones, si no existe creo uno y el jugador ha hecho la mayor puntuacion porque no había constancia de otras partidas
 //Si el archivo si fue encontrado, lo recorro hasta que mi puntuación sea menor que la que estoy comprobando
 //Esa sera la posicion del jugador en el ranking, bajo una posicion todas las puntuaciones inferiores y coloco la del jugador
@@ -139,7 +140,7 @@ void Game::run() {
 
 void Game::update() {
 	bow->update();
-	//Los globos al estar en un array todos guardados lo hago con el bucle, las flechas tienen una estructura similar por lo que será lo mismo
+	//Los globos y flechas se tienen que recorrer con bucles
 	for (int i = 0; i < numBalloons; i++) {
 		if (ballons.at(i)->update()) {    // Si alguno me dice que se ha salido de antalla genero uno nuevo
 			generateBalloons(&ballons, i);
@@ -154,21 +155,21 @@ void Game::update() {
 	}	
 }
 
-void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
+void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 			delete ball->at(i);
 			ball->at(i) = new Ballon(100, 100, textures[5],velBallon, this, i,winWidth,winHeight);
 }
 
 void Game::render() const {
 	SDL_RenderClear(renderer);
-	//Prepao el rect donde se va a dibujar
+	//Primero renderizo el fondo
 	SDL_Rect dest;
 	dest.x = 0;	dest.y = 0;
 	dest.w = winWidth; dest.h = winHeight;	
 	textures[0]->render(dest);
 	//LLamo a cada objeto para que se dibuje
-	marcador->render();                       //Me interesa que se renderice primero el marcador porque asi no tapa al arco
+	marcador->render();                       //Dibuo antes el marcador para que no tape al arco
 	bow->render();
 	for (int i = 0; i < numBalloons; i++) {
 		ballons.at(i)->render();
@@ -197,7 +198,7 @@ void Game::newArrow(double x, double y,int speed,int rotatio) {
 	arrow->setVel(speed, 0);
 	else {
 		int VelX = cos(-((rotatio* M_PI) / 180)) * speed;
-		int VelY = -sin(-((rotatio * M_PI) / 180)) * speed;   //Si la speed es demasiado pequeño esto va a dar 0, la culpa es de speed
+		int VelY = -sin(-((rotatio * M_PI) / 180)) * speed;   //Si la speed es demasiado pequeño esto va a dar 0, aunque haya algo de rotacion
 		arrow->setVel(VelX, VelY);
 	}
 }

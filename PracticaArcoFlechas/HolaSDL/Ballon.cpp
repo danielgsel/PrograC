@@ -33,9 +33,7 @@ void Ballon::render() {
 		}
 		else
 			game->destroyBaloon(posV);		
-	}
-	
-	
+	}	
 }
 
 //Le digo que se dibuje en su posicion, pregunto si alguna flecha me esta dando, hago que se mueva para el siguiente frame y devuelvo si se ha salido de la pantalla o no
@@ -49,8 +47,7 @@ bool Ballon::update() {
 	if (game->arrowHitsBaloon(dest)) {
 		poped = true;		
 	}
-
-	position.setY(position.getY() + vel.getY());	
+	position = position+vel;
 	return(position.getY() + h < 0);
 }
 
