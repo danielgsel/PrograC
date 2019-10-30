@@ -16,19 +16,19 @@ private:
 
 	
 	
-	Point2D position = Vector2D(250+((rand()%10)*50),600+(rand() % 10) * 50); // las posiciones en las que aparecen son random
+	int winW=800;
+	int winH = 1000;
 	uint w=70;   //Numero de pixels que tiene cada cosa
 	uint h=100;
 	int row = (rand() % 7);//7 tiene
 	int col = 0;//6 tiene
-	Vector2D vel = Vector2D();  //Velocidad random para cada globo
 	Texture* texture=nullptr;
+	Game* game=nullptr;
+	Point2D position = Vector2D(((rand()%(winW/2))-w+(winW/2)),winH+h+(rand()%10)*50); // las posiciones en las que aparecen son random
+	Vector2D vel = Vector2D();  //Velocidad random para cada globo
 	bool poped=false;
 	int balloonRow;
-	Game* game;
 	int posV;
-	int winW=800;
-	int winH = 1000;
 	int updates = 0;
 
 public:
@@ -36,7 +36,7 @@ public:
 	Ballon(uint w, uint h, Texture* t, int velBallon, Game* game, int posV,int wWidth,int wHeigth) : w(w), h(h), texture(t),vel(0,-velBallon), game(game), posV(posV) ,winW(wWidth),winH(wHeigth){}
 	void render();
 	bool update();
-	SDL_Rect* GetRect();
+	SDL_Rect GetRect();
 
 	
 

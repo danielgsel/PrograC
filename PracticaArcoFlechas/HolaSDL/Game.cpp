@@ -15,9 +15,9 @@ Game::Game() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 	window = SDL_CreateWindow("Untitled Dog Game", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, winWidth, winHeight, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr)
-		cout << "Error cargando SDL" << endl;
+		throw  (string)"Error cargando SDL";
 
 	/*Orden de las texturas para cargar
 	0=background
@@ -46,6 +46,11 @@ Game::~Game() {
 	//Destruyo todos los objetos  teniendo en cuenta que pueden estar en vectores
 	delete bow;
 	bow = nullptr;
+	for (int q = 0; q < arrows.size(); q++)
+	{
+		delete arrows.at(q);
+		arrows.at(q) = nullptr;
+	}
 	for (int i = 0; i < ballons.size(); i++) {
 		delete ballons.at(i);
 		ballons.at(i) = nullptr;
@@ -53,6 +58,9 @@ Game::~Game() {
 	for (uint i = 0; i < numTextures; i++) {
 		delete textures[i];
 	}	
+
+	delete marcador;
+	marcador = nullptr;
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -196,13 +204,13 @@ void Game::newArrow(double x, double y,int speed,int rotatio) {
 
 
 //Por cada globo que me llega compruebo si alguna de las flechas le ha dado
-bool Game::arrowHitsBaloon(SDL_Rect* baloon) {
+bool Game::arrowHitsBaloon(SDL_Rect baloon) {
 	int i = 0;
 	bool hit = false;
 	//SDL_bool hitSDL = SDL_FALSE;
 	while ((i < arrows.size()) && (hit == false)) {
-		SDL_Rect* res = new SDL_Rect();
-		hit = SDL_IntersectRect(baloon, arrows.at(i)->GetRect(), res);
+		SDL_Rect res = SDL_Rect();
+		hit = SDL_IntersectRect(&baloon, &arrows.at(i)->GetRect(), &res);
 		i++;
 	}
 

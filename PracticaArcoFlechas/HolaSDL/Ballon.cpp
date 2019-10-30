@@ -40,11 +40,11 @@ void Ballon::render() {
 
 //Le digo que se dibuje en su posicion, pregunto si alguna flecha me esta dando, hago que se mueva para el siguiente frame y devuelvo si se ha salido de la pantalla o no
 bool Ballon::update() {
-	SDL_Rect* dest = new SDL_Rect();
-	dest->x = position.getX();
-	dest->y = position.getY();
-	dest->w = w;
-	dest->h = h;
+	SDL_Rect dest = SDL_Rect();
+	dest.x = position.getX();
+	dest.y = position.getY();
+	dest.w = w;
+	dest.h = h;
 	
 	if (game->arrowHitsBaloon(dest)) {
 		poped = true;		
@@ -54,11 +54,11 @@ bool Ballon::update() {
 	return(position.getY() + h < 0);
 }
 
-SDL_Rect* Ballon::GetRect() {
-	SDL_Rect* dest = new SDL_Rect();
-	dest->x = position.getX();
-	dest->y = position.getY();
-	dest->w = w;
-	dest->h = h;
+SDL_Rect Ballon::GetRect() {
+	SDL_Rect dest = SDL_Rect();
+	dest.x = position.getX();
+	dest.y = position.getY();
+	dest.w = w;
+	dest.h = h;
 	return dest;
 }

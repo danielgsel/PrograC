@@ -26,8 +26,8 @@ private:
 public:
 	Texture(SDL_Renderer* r) : renderer(r) {};
 	Texture(SDL_Renderer* r, string filename, uint numRows = 1, uint numCols = 1) : renderer(r) { load(filename, numRows, numCols); };
-	~Texture() { liberar(); };
-	void liberar();   //Lo he llamado asi porque cuando era freee me solia dar errores al terminar el juego
+	~Texture() { FREE(); };
+	void FREE();   //Lo he llamado asi porque cuando era freee me solia dar errores al terminar el juego
 	int getW() const { return w; };
 	int getH() const { return h; };
 	uint getNumCols() const { return numCols; };

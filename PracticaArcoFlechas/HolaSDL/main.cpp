@@ -5,20 +5,25 @@
 #include <iostream>
 #include "Game.h"
 
+
 using namespace std;
 
 using uint = unsigned int;
 
 int main(int argc, char* argv[]){
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//Game* game=nullptr;
 	
 	try {
 		Game game;
+		//game = new Game();
 		game.run();
-	    game.~Game();//Para que nada más terminar de correr se destruyan y borren todos los objetos
-
+		
 	}
 	catch(string error){
+
 		cout << error;
 	}
-	return 1;
+	//delete game;
+	return 0;
 }

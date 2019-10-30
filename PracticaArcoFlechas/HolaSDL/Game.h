@@ -59,7 +59,7 @@ public:
 	void SaveScore();
 	void newArrow(double x, double y,int speed, int rotatio);
 	int arrowsLeft();
-	bool arrowHitsBaloon(SDL_Rect* baloon);
+	bool arrowHitsBaloon(SDL_Rect baloon);
 	void destroyBaloon(int pos);
 
 };
