@@ -32,9 +32,9 @@ Game::Game() {
 		for (int i = 0; i < numTextures; i++) {
 			textures[i] = new Texture(renderer, mytextures[i].file, mytextures[i].row, mytextures[i].col);
 		}
-		bow = new Bow(100, 100, textures[1], textures[2], velBow, this);
+		bow = new Bow( textures[1], textures[2], this,winHeight);
 		for (int i = 0; i < numBalloons; i++) {
-			ballons.push_back(new Ballon(100, 100, textures[5], velBallon, this, i,winWidth,winHeight));
+			ballons.push_back(new Ballon( textures[5], this, i,winWidth,winHeight));
 		}
 		marcador = new Marcador(textures[6], textures[4], numArrows);
 
@@ -67,75 +67,17 @@ Game::~Game() {
 	SDL_Quit();
 }
 
-//Le pido el jugador un nombre
-//Me voy al archivo de puntuaciones, si no existe creo uno y el jugador ha hecho la mayor puntuacion porque no había constancia de otras partidas
-//Si el archivo si fue encontrado, lo recorro hasta que mi puntuación sea menor que la que estoy comprobando
-//Esa sera la posicion del jugador en el ranking, bajo una posicion todas las puntuaciones inferiores y coloco la del jugador
-void Game::SaveScore() {
-	string nombre;
-	cout << "Dame tu nombre";
-	cin >> nombre;
 
-	ifstream puntuaciones;
-	puntuaciones.open("puntuaciones.txt");
-	if (puntuaciones.is_open()) {
-		vector<int> record;
-		vector <string> jugadores;
-		for (int j = 0; j < 10; j++) {
-			int punt = 0;
-			string jugador = "";
-			puntuaciones >> jugador;
-			puntuaciones >> punt;
-			jugadores.push_back(jugador);
-			record.push_back(punt);
-		}
-		puntuaciones.close();
-		int k = 0;
-		while (k < record.size() && record.at(k) > marcador->getPoints()) {
-			k++;
-		}
-		for (int p = record.size() - 1; p > k; p--) {
-			record.at(p) = record.at(p - 1);
-			jugadores.at(p) = jugadores.at(p - 1);
-		}
-		if (k < record.size() && k >= 0) {
-			record.at(k) = marcador->getPoints();
-			jugadores.at(k) = nombre;
-		}
-		ofstream actualizar;
-		actualizar.open("puntuaciones.txt");
-		for (int i = 0; i < record.size(); i++) {
-			actualizar << jugadores.at(i) << " ";
-			actualizar << record.at(i) << endl;
-		}
-
-	}
-	else {
-
-
-		ofstream myfile;
-		myfile.open("puntuaciones.txt");
-		myfile << marcador->getPoints() << endl;
-
-		for (int i = 0; i < 9; i++)
-			myfile << 0 << endl;
-		myfile.close();
-	}
-
-
-}
 void Game::run() {
-	//BUCLE PRINCIPAL DEL JUEGO	
-	while (!exit) {
+	//Mientras no quiera salir o me quede municion o mi ultima flecha siga en el aire. Sigo jugando
+	while (!exit && !(numArrows<1 && arrows.size()<1)) {
 		
 		handleEvents();
 		update();
 		render();
-
 		//DELAY PARA CONTROLAR LOS FPS
 		SDL_Delay(FRAMERATE);
 	}
-	SaveScore();
 }
 
 void Game::update() {
@@ -153,12 +95,13 @@ void Game::update() {
 			arrows.erase(arrows.begin() + i);
 		}
 	}	
+	
 }
 
 	//Borro de memoria el globo que se acaba de salir de pantalla y creo uno nuevo en su lugar en el vector de globos
 void Game::generateBalloons(vector<Ballon*>* ball, int i) {
 			delete ball->at(i);
-			ball->at(i) = new Ballon(100, 100, textures[5],velBallon, this, i,winWidth,winHeight);
+			ball->at(i) = new Ballon( textures[5], this, i,winWidth,winHeight);
 }
 
 void Game::render() const {
@@ -191,9 +134,11 @@ void Game::handleEvents() {
 
 //Creo un nueva flecha, si la rotacion que me llega no es nula, calculo sus componentes x e y
 void Game::newArrow(double x, double y,int speed,int rotatio) {
-	Arrow* arrow = new Arrow(x,y, textures[3],rotatio, winWidth);
+	Arrow* arrow = new Arrow(x,y, textures[3],rotatio, winWidth,winHeight);
 	arrows.push_back(arrow);
-	marcador->arrowShot();
+	numArrows--;
+	cout << "Arrows left="<<numArrows<<endl;
+	marcador->arrowShot(numArrows);
 	if (rotatio == 0)
 	arrow->setVel(speed, 0);
 	else {
@@ -208,7 +153,6 @@ void Game::newArrow(double x, double y,int speed,int rotatio) {
 bool Game::arrowHitsBaloon(SDL_Rect baloon) {
 	int i = 0;
 	bool hit = false;
-	//SDL_bool hitSDL = SDL_FALSE;
 	while ((i < arrows.size()) && (hit == false)) {
 		SDL_Rect res = SDL_Rect();
 		hit = SDL_IntersectRect(&baloon, &arrows.at(i)->GetRect(), &res);
@@ -219,15 +163,17 @@ bool Game::arrowHitsBaloon(SDL_Rect baloon) {
 }
 
 
-//Borro de memoria el globo
+//Borro el globo de la posicion pos del vector de globos y en su lugar creo uno nuevo
 void Game::destroyBaloon(int pos) {
 	delete ballons.at(pos);
-	ballons.at(pos) = new Ballon(100, 100, textures[5], velBallon, this, pos,winWidth,winHeight);
+	ballons.at(pos) = new Ballon( textures[5],  this, pos,winWidth,winHeight);
 	puntuacion++;
+	cout << "Points="<<puntuacion<<endl;
 	marcador->SetPoints(puntuacion);
 }
 
 
+//Devuele la municion restante
 int Game::arrowsLeft() {
-	return marcador->arrowsLeft();
+	return numArrows;
 }

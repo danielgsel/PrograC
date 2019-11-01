@@ -1,42 +1,35 @@
-﻿  Arrow.cpp
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Arrow.cpp(31,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Arrow.cpp(32,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Arrow.cpp(49,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-  Ballon.cpp
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Arrow.cpp(50,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+﻿  Ballon.cpp
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(10,9): warning C4101:  'game': variable local sin referencia
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(16,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(17,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(42,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(43,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(56,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-  Game.cpp
+  Bow.cpp
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Ballon.cpp(57,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Bow.cpp(10,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+  Game.cpp
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Bow.cpp(11,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(36,21): warning C4018:  '<': no coinciden signed/unsigned
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(51,20): warning C4018:  '<': no coinciden signed/unsigned
 C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(56,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(94,12): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(101,9): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(107,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(150,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(177,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(200,12): warning C4244:  'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(201,12): warning C4244:  'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(86,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(92,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(117,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(120,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(145,12): warning C4244:  'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(146,12): warning C4244:  'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   Marcador.cpp
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(212,12): warning C4018:  '<': no coinciden signed/unsigned
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(36,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(37,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(49,30): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(59,36): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-  Vector2D.cpp
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(60,30): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(19,20): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(19,18): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(25,21): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(25,18): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(31,21): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(31,18): warning C4244:  'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Game.cpp(156,12): warning C4018:  '<': no coinciden signed/unsigned
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(32,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(33,24): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(45,30): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(55,36): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
+C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Marcador.cpp(56,30): warning C4244:  '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\crtdbg.h(303,1): warning C4005:  '_malloca': redefinición de macro
   Generando código...
-C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\HolaSDL\Vector2D.cpp(35,25): warning C4244:  'return': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h(122): message :  vea la definición anterior de '_malloca'
   HolaSDL.vcxproj -> C:\Universidad\TPVDani\PrograC\PracticaArcoFlechas\bin\SDLDebug.exe

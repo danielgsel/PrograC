@@ -8,7 +8,7 @@
 
 
 
-Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth) {
+Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth,int wHeigth) {
 	position = Vector2D();
 	w = 100;
 	h = 30;
@@ -16,6 +16,7 @@ Arrow::Arrow(double x, double y, Texture* t, int angle,int wWidth) {
 	position.setY(y+40);
 	texture = t;
 	winwidth = wWidth;
+	winHeigth = wHeigth;
 	vel = Vector2D();
 	angulo = angle;
 
@@ -37,7 +38,7 @@ void Arrow::render() {
 
 bool Arrow::update() {	
 	position = position + vel;
-	if (position.getX() >= winwidth || position.getX()<=0) {
+	if (position.getX() >= winwidth || position.getX()+w<=0 || position.getY()+w<=0 || position.getY()-w>winHeigth) {  //Utilizamos el ancho debido a que es la medida más grande que tiene y asi aseguramos que se ha salido de pantalla
 		return true;
 	}
 	else return false;

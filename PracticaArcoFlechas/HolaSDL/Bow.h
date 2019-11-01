@@ -14,11 +14,12 @@ private:
 	Point2D position=Vector2D(50,0);
 	Vector2D vel=  Vector2D();        //En el cpp estoy cambiando su valor constatemente, habría que busca otra forma de imlementarlo para que no cambie su valor
 	
-	uint w=200;
-	uint h = 200;
+	uint w=100;
+	uint h = 100;
 	int velocidadMovimiento = 5;
 	int timeCharged = 0;
 	int velocidadFlecha = 0;
+	int winHeight = 1000;
 	Texture* texture = nullptr;
 	Texture* textureIddle = nullptr;
 	Texture* textureCharged = nullptr;
@@ -27,7 +28,7 @@ private:
 	int rotation = 0;
 public:
 	Bow() {}
-	Bow(uint w, uint h, Texture* t,Texture* c, int velMov, Game* game) : w(w), h(h),texture(t), textureIddle(t),textureCharged(c),velocidadMovimiento(velMov), game(game) {}
+	Bow( Texture* t,Texture* c, Game* game,int wH) : texture(t), textureIddle(t),textureCharged(c), game(game),winHeight(wH) {}
 	void render() ;
 	void update();
     void handleEvents(SDL_Event& event);

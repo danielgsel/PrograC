@@ -16,14 +16,10 @@ int Marcador::digits(int number) {
 	return i;
 }
 
-void Marcador::arrowShot() {
-	arrows = arrows - 1;
+void Marcador::arrowShot(int arr) {
+	arrows = arr;
 }
 
-int Marcador::arrowsLeft() {
-
-	return arrows;
-}
 int Marcador::getPoints() {
 	return points;
 }

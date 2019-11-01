@@ -13,6 +13,7 @@ private:
 	int w;
 	int h;
 	int winwidth=800;
+	int winHeigth = 1000;
 	
 	Vector2D vel;
 	int maxVel = 100;
@@ -20,7 +21,7 @@ private:
 	Texture* texture = nullptr;
 
 public:
-	Arrow(double x, double y, Texture* t, int angle,int wWidth);
+	Arrow(double x, double y, Texture* t, int angle,int wWidth,int wHeigth);
 	~Arrow(){}
 	void render();
 	void setVel(double x, double y);

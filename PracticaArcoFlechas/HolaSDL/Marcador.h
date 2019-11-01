@@ -12,9 +12,7 @@ private:
 	int w = 40;
 	int h = 40;
 	int row = 0;
-	int x = 0;
-	int y = 0;
-	Vector2D position = Vector2D(x, y);
+	Vector2D position = Vector2D(0, 0);
 	
 public:
 	Marcador(){}
@@ -23,8 +21,7 @@ public:
 	void render();
 	int getPoints();
 	void SetPoints(int newpoints);
-	void arrowShot();
-	int arrowsLeft();
+	void arrowShot(int arr);
 	int digits(int number);
 };
 
