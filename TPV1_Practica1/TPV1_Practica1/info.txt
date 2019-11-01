@@ -1,0 +1,7 @@
+Alumno1: David Czepiel
+Alumno2: Daniel González Sellán
+
+Funcionalidades opcionales implementadas:
+-La flecha lanzada ve su velocidad modificada según el tiempo que cargues el arco.
+-Tanto el arco como la flecha pueden rotar para cambiar su orientación.
+-Implementada Scoreboard con municion y puntos en pantalla
